@@ -21,10 +21,14 @@ struct HomeView: View {
             //MARK: Header
             
             Spacer()
-            Image("character-2")
-                .resizable()
-                .scaledToFit()
+            
+            ZStack {
+                CircleGroupView(ShapeColor: .blue, ShapeOpacity: 0.1)
+                Image("character-2")
+                    .resizable()
+                    .scaledToFit()
                 .padding()
+            }
             
             //MARK: Center
             
