@@ -14,7 +14,7 @@ import CoreImage.CIFilterBuiltins
 
 class LockscreenModel: ObservableObject {
     //Image picker
-    @Published var pickedItem: PhotosPickerItem?{
+    @Published var pickedItem: PhotosPickerItem?{ // ios 16
         didSet{
             //MARK: Extracting Image
             extractImage()
@@ -35,16 +35,22 @@ class LockscreenModel: ObservableObject {
     func extractImage(){
         if let pickedItem{
             Task{
-                guard let imageData = try? await pickedItem.loadTransferable(type: Data.self) else {
-                    print("no image data")
-                    return}
-                //MARK: Resziz image to phone size * 2
-                let size = await UIApplication.shared.screenSize()
-                let image = UIImage(data: imageData)?.sd_resizedImage(with: CGSize(width: size.width * 2, height: size.height * 2), scaleMode: .aspectFill)
-                await MainActor.run(body: {
-                    self.compressedImage = image
-                    segmetPersonOnImage()
-                })
+                if #available(iOS 16.0, *) {
+                    guard let imageData = try? await pickedItem.loadTransferable(type: Data.self) else {
+                        print("no image data")
+                        return}
+                    //MARK: Resziz image to phone size * 2
+                    let size = await UIApplication.shared.screenSize()
+                    let image = UIImage(data: imageData)?.sd_resizedImage(with: CGSize(width: size.width * 2, height: size.height * 2), scaleMode: .aspectFill)
+                    await MainActor.run(body: {
+                        self.compressedImage = image
+                        segmetPersonOnImage()
+                    })
+                } else {
+                    print("todo")
+                    // Fallback on earlier versions
+                }
+
             }
         }
     }

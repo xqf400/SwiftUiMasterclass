@@ -43,13 +43,22 @@ struct Home: View {
                 }
             }else{
                 // MARK: Image Picker
-                PhotosPicker(selection: $lockscreenModel.pickedItem, matching: .images, preferredItemEncoding: .automatic, photoLibrary: .shared()) {
+                if #available(iOS 16.0, *) {
+                    PhotosPicker(selection: $lockscreenModel.pickedItem, matching: .images, preferredItemEncoding: .automatic, photoLibrary: .shared()) {
+                        VStack(spacing: 10){
+                            Image(systemName: "plus.viewfinder")
+                                .font(.largeTitle)
+                            Text("Add Image")
+                        }
+                        .foregroundColor(.primary)
+                    }
+                } else {
                     VStack(spacing: 10){
                         Image(systemName: "plus.viewfinder")
                             .font(.largeTitle)
-                        Text("Add Image")
+                        Text("Todo")
                     }
-                    .foregroundColor(.primary)
+                    // Fallback on earlier versions
                 }
             }
         }
