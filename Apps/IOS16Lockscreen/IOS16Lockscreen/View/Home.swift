@@ -22,11 +22,23 @@ struct Home: View {
                     Image(uiImage: compressedImage)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame().frame(width: size.width, height: size.height)
+                    .frame(width: size.width, height: size.height)
                     .clipped()
+                    //IF we applay scale to whole view then the time view will be streching, thats why we added gesture to root view and appliny scaling only for the image
+                    .scaleEffect(lockscreenModel.scale)
                     .overlay {
-                        TimeView()
-                            .environmentObject(lockscreenModel)
+                        if let detectedPerson = lockscreenModel.detectedPerson{
+                            TimeView()
+                                .environmentObject(lockscreenModel)
+                            //MARK: Placing over the normal image
+                            Image(uiImage: detectedPerson)
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .scaleEffect(lockscreenModel.scale)
+                            
+
+                        }
+
                     }
                 }
             }else{
@@ -47,6 +59,7 @@ struct Home: View {
             Button("Cancel"){
                 withAnimation(.easeOut){
                     lockscreenModel.compressedImage = nil
+                    lockscreenModel.detectedPerson = nil
                 }
             }
             .font(.caption)
@@ -90,16 +103,19 @@ struct TimeView: View {
                     .frame(width: 15, height: 15)
             }
             
-            Text(Date.now.convertToString(.hour))
+            Text(Date.now.convertToString(.minute))
                 .font(.system(size:95))
                 .fontWeight(.semibold)
             
         }
+        .foregroundColor(.white)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+        .padding(.top, 100)
     }
 }
 
 enum DateFormat: String {
-    case hour = "hh"
+    case hour = "HH"
     case minute = "mm"
     case seconds = "ss"
 }
