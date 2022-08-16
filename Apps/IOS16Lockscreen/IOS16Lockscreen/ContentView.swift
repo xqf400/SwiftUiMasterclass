@@ -39,11 +39,21 @@ struct ContentView: View {
                         }
                         //MARK: Excluding the main scale
                         lockscreenModel.lastScale = lockscreenModel.scale - 1
+                        //MARK: After animateion completes
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2){
+                            lockscreenModel.verifyScreenColor()
+                        }
                     })
                 )
             .environmentObject(lockscreenModel)
+            .onChange(of: lockscreenModel.onLoad) { newValue in
+                //what if the image is already above initially
+                if newValue{
+                    lockscreenModel.verifyScreenColor()
+                }
+            }
         //MARK: Test Show Case
-            .overlay{
+            //.overlay{
                 //Thus we get correct position
                 /*
                 Circle()
@@ -51,7 +61,7 @@ struct ContentView: View {
                     .frame(width: 15, height: 15)
                     .position(x: lockscreenModel.textRect.midX, y: lockscreenModel.textRect.midY)
                     .ignoresSafeArea()*/
-            }
+            //}
     }
 }
 

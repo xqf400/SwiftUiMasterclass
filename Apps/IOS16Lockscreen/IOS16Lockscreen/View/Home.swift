@@ -61,6 +61,9 @@ struct Home: View {
                     lockscreenModel.compressedImage = nil
                     lockscreenModel.detectedPerson = nil
                 }
+                lockscreenModel.scale = 1
+                lockscreenModel.lastScale = 0
+                lockscreenModel.placeTextAbove = false
             }
             .font(.caption)
             .foregroundColor(.primary)

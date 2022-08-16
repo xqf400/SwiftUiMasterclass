@@ -30,6 +30,7 @@ class LockscreenModel: ObservableObject {
     @Published var textRect: CGRect = .zero
     @Published var view: UIView = .init()
     @Published var placeTextAbove: Bool = false
+    @Published var onLoad : Bool = false
     
     func extractImage(){
         if let pickedItem{
@@ -104,6 +105,7 @@ class LockscreenModel: ObservableObject {
             
             //This is detected Person image
             self.detectedPerson = UIImage(cgImage: image)
+            self.onLoad = true
         }
     }
     
