@@ -71,6 +71,7 @@ struct Home: View {
                     .fill(.ultraThinMaterial)
             }
             .padding()
+            .padding(.top, 45)
             .opacity(lockscreenModel.compressedImage == nil ? 0:1)
         }
     }
@@ -101,6 +102,19 @@ struct TimeView: View {
                 Circle()
                     .fill(.white)
                     .frame(width: 15, height: 15)
+                
+                //MARK: Logic for putting time behing the person
+                //we use this second dot as a color Rectifier so we will simply check the view this point to be white. if it changes to anyother color then we're putting time view aboce the person. when will this color change eventually when youre scaling the image. the image will goes over it. Thus the white will be disabled
+                    .overlay {
+                        GeometryReader{ proxy in
+                            let rect = proxy.frame(in: .global)
+                            Color.clear
+                                .preference(key: RectKey.self, value: rect)
+                            onPreferenceChange (RectKey.self) { value in
+                                lockscreenModel.textRect = value
+                            }
+                        }
+                    }
             }
             
             Text(Date.now.convertToString(.minute))
@@ -125,5 +139,15 @@ extension Date{
         let formater = DateFormatter()
         formater.dateFormat = format.rawValue
         return formater.string(from: self)
+    }
+}
+
+
+//MARK: Rect Prefernece Key
+
+struct RectKey: PreferenceKey{
+    static var defaultValue: CGRect = .zero
+    static func reduce(value: inout CGRect, nextValue: () -> CGRect) {
+        value = nextValue()
     }
 }

@@ -7,26 +7,51 @@
 
 import SwiftUI
 
+//https://www.youtube.com/watch?v=xd-wqwO0BrM
+
 struct ContentView: View {
-    @StateObject var locksreenModel: LockscreenModel = .init()
+    @StateObject var lockscreenModel: LockscreenModel = .init()
     var body: some View {
-        Home()
+        CustomColorFinderView(content:  {
+            Home()
+        }, onLoad: { view in
+            lockscreenModel.view = view
+        })
+        .overlay(alignment: .top, content: {
+            TimeView()
+                .environmentObject(lockscreenModel)
+                .opacity(lockscreenModel.placeTextAbove ? 1 : 0)
+        })
+        //Since home is edges ignored, we need to ignore it for uikit ranslated view
+        .ignoresSafeArea()
+        .environmentObject(lockscreenModel)
         //MARK: Adding Scaling
             .gesture(
                 MagnificationGesture(minimumScaleDelta: 0.01)
                     .onChanged({ value in
-                        locksreenModel.scale = value * locksreenModel.lastScale
+                        lockscreenModel.scale = value * lockscreenModel.lastScale
+                        lockscreenModel.verifyScreenColor()
                     }).onEnded({ _ in
-                        if locksreenModel.scale < 1 {
+                        if lockscreenModel.scale < 1 {
                             withAnimation(.easeOut(duration: 0.15)){
-                                locksreenModel.scale = 1
+                                lockscreenModel.scale = 1
                             }
                         }
                         //MARK: Excluding the main scale
-                        locksreenModel.lastScale = locksreenModel.scale - 1
+                        lockscreenModel.lastScale = lockscreenModel.scale - 1
                     })
                 )
-            .environmentObject(locksreenModel)
+            .environmentObject(lockscreenModel)
+        //MARK: Test Show Case
+            .overlay{
+                //Thus we get correct position
+                /*
+                Circle()
+                    .fill(.red)
+                    .frame(width: 15, height: 15)
+                    .position(x: lockscreenModel.textRect.midX, y: lockscreenModel.textRect.midY)
+                    .ignoresSafeArea()*/
+            }
     }
 }
 

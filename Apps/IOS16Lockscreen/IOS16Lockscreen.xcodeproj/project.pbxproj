@@ -14,6 +14,7 @@
 		057F608B28AB84A9006E6448 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057F608A28AB84A9006E6448 /* Home.swift */; };
 		057F608D28AB84D0006E6448 /* LockscreenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057F608C28AB84D0006E6448 /* LockscreenModel.swift */; };
 		057F609028AB88FA006E6448 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 057F608F28AB88FA006E6448 /* SDWebImageSwiftUI */; };
+		058C993328ABF20A00DE8709 /* CustomColorFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058C993228ABF20A00DE8709 /* CustomColorFinder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		057F608128AB8443006E6448 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		057F608A28AB84A9006E6448 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		057F608C28AB84D0006E6448 /* LockscreenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockscreenModel.swift; sourceTree = "<group>"; };
+		058C993228ABF20A00DE8709 /* CustomColorFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColorFinder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				057F608A28AB84A9006E6448 /* Home.swift */,
+				058C993228ABF20A00DE8709 /* CustomColorFinder.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -168,6 +171,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				057F607D28AB8442006E6448 /* ContentView.swift in Sources */,
+				058C993328ABF20A00DE8709 /* CustomColorFinder.swift in Sources */,
 				057F608B28AB84A9006E6448 /* Home.swift in Sources */,
 				057F608D28AB84D0006E6448 /* LockscreenModel.swift in Sources */,
 				057F607B28AB8442006E6448 /* IOS16LockscreenApp.swift in Sources */,
