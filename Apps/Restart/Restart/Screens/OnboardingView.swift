@@ -11,6 +11,10 @@ struct OnboardingView: View {
     //MARK: - Property
     
     @AppStorage("onboarding") var isOnoardingViewActive: Bool = true //User defaults
+    @State private var buttonWidth : Double = UIScreen.main.bounds.width - 80
+    @State private var buttonOffset: CGFloat = 0
+    
+    
     
     @State private var textTitle: String = "Share."
     
@@ -94,7 +98,7 @@ struct OnboardingView: View {
                     HStack{
                         Capsule()
                             .fill(Color("ColorRed"))
-                            .frame(width: 80)
+                            .frame(width: buttonOffset + 80)
                         
                         Spacer()
                     }
@@ -113,13 +117,27 @@ struct OnboardingView: View {
                         }
                         .foregroundColor(.white)
                         .frame(width: 80, height: 80, alignment: .center)
-                        .onTapGesture {
-                            isOnoardingViewActive = false
-                        }
+                        .offset(x: buttonOffset)
+                        .gesture(
+                            DragGesture()
+                                .onChanged{gesture in
+                                    if gesture.translation.width > 0 && buttonOffset <= buttonWidth - 80 {
+                                        buttonOffset = gesture.translation.width
+                                    }
+                                }
+                                .onEnded{ _ in
+                                    if buttonOffset > buttonWidth / 1.5 {
+                                        buttonOffset = buttonWidth - 80
+                                        isOnoardingViewActive = false
+                                    }else{
+                                        buttonOffset = 0
+                                    }
+                                }
+                        )//Gesture
                         Spacer()
                     }//HStack
                 }//Footer
-                .frame(height: 80, alignment: .center)
+                .frame(width: buttonWidth, height: 80, alignment: .center)
                 .padding()//avoid screen edges
             } //: VSTACK
         } //: ZSTACK
