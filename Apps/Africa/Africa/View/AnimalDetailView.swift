@@ -49,6 +49,21 @@ struct AnimalDetailView: View {
                     InsetFactView(animal: animal)
                 }
                 .padding(.horizontal)
+
+                //Map
+                Group{
+                    HeadingView(headingImage: "map", headingText: "National Parks")
+                    InsetMapView()
+                }
+                .padding(.horizontal)
+                
+                //Link
+                Group{
+                    HeadingView(headingImage: "books.vertical", headingText: "Learn more")
+                    ExternalWeblinkView(animal: animal)
+                }
+                .padding(.horizontal)
+                
                 //description
                 Group{
                     HeadingView(headingImage: "info.circle", headingText: "All about \(animal.name)")
@@ -57,10 +72,6 @@ struct AnimalDetailView: View {
                         .layoutPriority(1)
                 }
                 .padding(.horizontal)
-                //Map
-                
-                //Link
-                
                 
             }//Vstack
             .navigationBarTitle("Learn about \(animal.name)", displayMode: .inline)
