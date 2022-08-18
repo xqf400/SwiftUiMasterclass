@@ -161,7 +161,8 @@ struct OnboardingView: View {
                         .gesture(
                             DragGesture()
                                 .onChanged{gesture in
-                                    if gesture.translation.width > 0 && buttonOffset <= buttonWidth - 80 {
+                                    if gesture.translation.width > 0 && buttonOffset <= buttonWidth - 80
+                                    {
                                         buttonOffset = gesture.translation.width
                                     }
                                 }
