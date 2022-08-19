@@ -62,7 +62,7 @@ struct MapView: View {
                             .font(.footnote)
                             .foregroundColor(.white)
                     }
-                    Divider()
+                    Divider() //Teiler
                     
                     HStack{
                         Text("Longitude:")
