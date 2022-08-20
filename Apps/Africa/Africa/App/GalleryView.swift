@@ -8,12 +8,26 @@
 import SwiftUI
 
 struct GalleryView: View {
+    
+    let animals: [Animal] = Bundle.main.decocde("animals.json")
+    
+    let gridLayout: [GridItem] = [
+        GridItem(.flexible()),
+        GridItem(.flexible()),
+        GridItem(.flexible())
+    ]
+    
     var body: some View {
         ScrollView {
-            Text("Gallery")
+            LazyVGrid(columns: gridLayout, alignment: .center, spacing: 10) {
+                ForEach(animals) { item in
+                    Text("Gallery")
+                }
+            }//Grid
         }//Scroll
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(MotionAnimationView())
+        .ignoresSafeArea(.all)
     }
 }
 
