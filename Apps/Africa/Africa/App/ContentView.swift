@@ -49,7 +49,11 @@ struct ContentView: View {
                                     .animation(.easeIn)
                             }//Link
                         }//loop
+                            CreditsView()
+                            .modifier(CenterModifier())
+                            .frame(height: 200)
                     }//List
+                    
                 } else {
                     ScrollView{
                         LazyVGrid(columns: gridLayout, alignment: .center, spacing: 10) {

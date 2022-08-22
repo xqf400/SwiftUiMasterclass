@@ -50,6 +50,8 @@
 		05940DE928B3C94600E28FC5 /* AnimalgridItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05940DE828B3C94600E28FC5 /* AnimalgridItemView.swift */; };
 		05940DEF28B3CE0800E28FC5 /* Stickers.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05940DEE28B3CE0800E28FC5 /* Stickers.xcassets */; };
 		05940DF328B3CE0800E28FC5 /* Stickers.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 05940DEC28B3CE0600E28FC5 /* Stickers.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		05940DF928B3CFBA00E28FC5 /* CreditsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05940DF828B3CFBA00E28FC5 /* CreditsView.swift */; };
+		05940DFC28B3D17D00E28FC5 /* CenterModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05940DFB28B3D17D00E28FC5 /* CenterModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +125,8 @@
 		05940DEC28B3CE0600E28FC5 /* Stickers.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Stickers.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		05940DEE28B3CE0800E28FC5 /* Stickers.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Stickers.xcassets; sourceTree = "<group>"; };
 		05940DF028B3CE0800E28FC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		05940DF828B3CFBA00E28FC5 /* CreditsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsView.swift; sourceTree = "<group>"; };
+		05940DFB28B3D17D00E28FC5 /* CenterModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +161,7 @@
 		054FB2E228AE23C000404202 /* Africa */ = {
 			isa = PBXGroup;
 			children = (
+				05940DFA28B3D16400E28FC5 /* Modifier */,
 				054FB33928AE734900404202 /* Helper */,
 				054FB31028AE318B00404202 /* App */,
 				054FB2E728AE23C200404202 /* Assets.xcassets */,
@@ -236,6 +241,7 @@
 				054FB33E28AF71C800404202 /* MapAnnotationView.swift */,
 				054FB34028AF75EE00404202 /* MotionAnimationView.swift */,
 				05940DE828B3C94600E28FC5 /* AnimalgridItemView.swift */,
+				05940DF828B3CFBA00E28FC5 /* CreditsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -274,6 +280,14 @@
 				05940DF028B3CE0800E28FC5 /* Info.plist */,
 			);
 			path = Stickers;
+			sourceTree = "<group>";
+		};
+		05940DFA28B3D16400E28FC5 /* Modifier */ = {
+			isa = PBXGroup;
+			children = (
+				05940DFB28B3D17D00E28FC5 /* CenterModifier.swift */,
+			);
+			path = Modifier;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -410,8 +424,10 @@
 				054FB32C28AE61F300404202 /* InsetGalleryView.swift in Sources */,
 				05940DE928B3C94600E28FC5 /* AnimalgridItemView.swift in Sources */,
 				054FB33628AE6BFD00404202 /* VideoListItemView.swift in Sources */,
+				05940DF928B3CFBA00E28FC5 /* CreditsView.swift in Sources */,
 				054FB32228AE582900404202 /* CodableBundleExtension.swift in Sources */,
 				054FB34128AF75EE00404202 /* MotionAnimationView.swift in Sources */,
+				05940DFC28B3D17D00E28FC5 /* CenterModifier.swift in Sources */,
 				054FB32A28AE60E300404202 /* HeadingView.swift in Sources */,
 				054FB33828AE724B00404202 /* VideoPlayerView.swift in Sources */,
 			);
