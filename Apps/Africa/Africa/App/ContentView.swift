@@ -13,7 +13,25 @@ struct ContentView: View {
     
     @State private var isGridViewActive: Bool = false
     
-    let gridLayout: [GridItem] = Array(repeating: GridItem(.flexible()), count: 2)
+    @State private var gridLayout : [GridItem] = [GridItem(.flexible())]
+    @State private var gridColumn : Int = 1
+    @State private var toolbarIcon : String = "square.grid.2x2"
+    
+    func gridSwitch(){
+        gridLayout = Array(repeating: .init(.flexible()), count: gridLayout.count % 3 + 1)
+        gridColumn = gridLayout.count
+        switch gridColumn{
+        case 1:
+            toolbarIcon = "square.grid.2x2"
+        case 2:
+            toolbarIcon = "square.grid.3x2"
+        case 3:
+            toolbarIcon = "rectangle.grid.1x2"
+        default:
+            toolbarIcon = "square.grid.2x2"
+
+        }
+    }
     
     var body: some View {
         NavigationView{
@@ -24,9 +42,11 @@ struct ContentView: View {
                         CoverImageView()
                             .frame(height: 300)
                             .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                            .animation(.easeIn)
                         ForEach(animals) {animal in
                             NavigationLink(destination: AnimalDetailView(animal: animal)){
                                 AnimalListItemView(animal: animal)
+                                    .animation(.easeIn)
                             }//Link
                         }//loop
                     }//List
@@ -37,7 +57,7 @@ struct ContentView: View {
                                 NavigationLink(destination: AnimalDetailView(animal: animal)) {
                                     AnimalgridItemView(animal: animal)
                                 }//link
-                            }//LOop
+                            }//Loop
                         }//Grid
                         .padding()
                         .animation(.easeIn)
@@ -60,8 +80,9 @@ struct ContentView: View {
                         Button {
                             isGridViewActive = true
                             haptics.impactOccurred()
+                            gridSwitch()
                         } label: {
-                            Image(systemName: "square.grid.2x2")
+                            Image(systemName: toolbarIcon)
                                 .font(.title2)
                                 .foregroundColor(isGridViewActive ? .accentColor: .primary)
                         }
