@@ -9,8 +9,9 @@ import SwiftUI
 
 struct GalleryView: View {
     
-    @State private var selectedAnimal: String = "lion"
+    @State private var selectedAnimal: String = ""
     let animals: [Animal] = Bundle.main.decocde("animals.json")
+    let haptics = UIImpactFeedbackGenerator(style: .medium)
     
     //Mehrere Zeilen markieren Shift control arrow up/down
     //let gridLayout: [GridItem] = [
@@ -40,6 +41,7 @@ struct GalleryView: View {
                     .scaledToFit()
                     .clipShape(Circle())
                     .overlay(Circle().stroke(Color.white, lineWidth: 10))
+                    .animation(.easeOut)
                 
                 //Slider
                 Slider(value: $gridColumn, in: 1...6, step: 1)
@@ -58,10 +60,13 @@ struct GalleryView: View {
                             .overlay(Circle().stroke(Color.white, lineWidth: 1))
                             .onTapGesture {
                                 selectedAnimal = item.image
+                                haptics.impactOccurred()
                             }
                     }//loop
                 }//Grid
+                .animation(.easeIn)
                 .onAppear {
+                    selectedAnimal = animals[4].image
                     gridSwitch()
                 }
             }//Vstack
