@@ -10,6 +10,7 @@
 		052F093928B61FEB006E90AD /* sound-tap.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 052F093628B61FEB006E90AD /* sound-tap.mp3 */; };
 		052F093A28B61FEB006E90AD /* sound-ding.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 052F093728B61FEB006E90AD /* sound-ding.mp3 */; };
 		052F093B28B61FEB006E90AD /* sound-rise.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 052F093828B61FEB006E90AD /* sound-rise.mp3 */; };
+		0572690928C233780027D221 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0572690828C233780027D221 /* Constant.swift */; };
 		05940E0B28B3D6CC00E28FC5 /* DevoteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05940E0A28B3D6CC00E28FC5 /* DevoteApp.swift */; };
 		05940E0D28B3D6CC00E28FC5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05940E0C28B3D6CC00E28FC5 /* ContentView.swift */; };
 		05940E0F28B3D6CE00E28FC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05940E0E28B3D6CE00E28FC5 /* Assets.xcassets */; };
@@ -23,6 +24,7 @@
 		052F093728B61FEB006E90AD /* sound-ding.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "sound-ding.mp3"; sourceTree = "<group>"; };
 		052F093828B61FEB006E90AD /* sound-rise.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "sound-rise.mp3"; sourceTree = "<group>"; };
 		052F094228B62082006E90AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		0572690828C233780027D221 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		05940E0728B3D6CC00E28FC5 /* Devote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Devote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05940E0A28B3D6CC00E28FC5 /* DevoteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevoteApp.swift; sourceTree = "<group>"; };
 		05940E0C28B3D6CC00E28FC5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 		052F093F28B62025006E90AD /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				0572690828C233780027D221 /* Constant.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 			files = (
 				05940E1428B3D6CE00E28FC5 /* Persistence.swift in Sources */,
 				05940E0D28B3D6CC00E28FC5 /* ContentView.swift in Sources */,
+				0572690928C233780027D221 /* Constant.swift in Sources */,
 				05940E1728B3D6CE00E28FC5 /* Devote.xcdatamodeld in Sources */,
 				05940E0B28B3D6CC00E28FC5 /* DevoteApp.swift in Sources */,
 			);
