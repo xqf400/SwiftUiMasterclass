@@ -12,6 +12,8 @@
 		052F093B28B61FEB006E90AD /* sound-rise.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 052F093828B61FEB006E90AD /* sound-rise.mp3 */; };
 		055C635F28C6212900F22AAC /* HideKeyBoardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055C635E28C6212900F22AAC /* HideKeyBoardExtension.swift */; };
 		055C636128C6245900F22AAC /* BackgroundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055C636028C6245900F22AAC /* BackgroundImageView.swift */; };
+		055C636328C6259700F22AAC /* NewTaskItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055C636228C6259700F22AAC /* NewTaskItemView.swift */; };
+		055C636528C6299900F22AAC /* BlankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055C636428C6299900F22AAC /* BlankView.swift */; };
 		0572690928C233780027D221 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0572690828C233780027D221 /* Constant.swift */; };
 		05940E0B28B3D6CC00E28FC5 /* DevoteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05940E0A28B3D6CC00E28FC5 /* DevoteApp.swift */; };
 		05940E0D28B3D6CC00E28FC5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05940E0C28B3D6CC00E28FC5 /* ContentView.swift */; };
@@ -28,6 +30,8 @@
 		052F094228B62082006E90AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		055C635E28C6212900F22AAC /* HideKeyBoardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyBoardExtension.swift; sourceTree = "<group>"; };
 		055C636028C6245900F22AAC /* BackgroundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundImageView.swift; sourceTree = "<group>"; };
+		055C636228C6259700F22AAC /* NewTaskItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskItemView.swift; sourceTree = "<group>"; };
+		055C636428C6299900F22AAC /* BlankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankView.swift; sourceTree = "<group>"; };
 		0572690828C233780027D221 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		05940E0728B3D6CC00E28FC5 /* Devote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Devote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05940E0A28B3D6CC00E28FC5 /* DevoteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevoteApp.swift; sourceTree = "<group>"; };
@@ -64,6 +68,8 @@
 			children = (
 				05940E0C28B3D6CC00E28FC5 /* ContentView.swift */,
 				055C636028C6245900F22AAC /* BackgroundImageView.swift */,
+				055C636228C6259700F22AAC /* NewTaskItemView.swift */,
+				055C636428C6299900F22AAC /* BlankView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -218,9 +224,11 @@
 				055C636128C6245900F22AAC /* BackgroundImageView.swift in Sources */,
 				05940E1428B3D6CE00E28FC5 /* Persistence.swift in Sources */,
 				05940E0D28B3D6CC00E28FC5 /* ContentView.swift in Sources */,
+				055C636528C6299900F22AAC /* BlankView.swift in Sources */,
 				0572690928C233780027D221 /* Constant.swift in Sources */,
 				05940E1728B3D6CE00E28FC5 /* Devote.xcdatamodeld in Sources */,
 				05940E0B28B3D6CC00E28FC5 /* DevoteApp.swift in Sources */,
+				055C636328C6259700F22AAC /* NewTaskItemView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
