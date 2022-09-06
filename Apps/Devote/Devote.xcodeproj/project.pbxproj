@@ -22,6 +22,8 @@
 		055C637828C63D2200F22AAC /* DevoteWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055C637728C63D2200F22AAC /* DevoteWidget.swift */; };
 		055C637A28C63D2400F22AAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 055C637928C63D2400F22AAC /* Assets.xcassets */; };
 		055C637E28C63D2400F22AAC /* DevoteWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 055C637028C63D2200F22AAC /* DevoteWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		055C638328C7397500F22AAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05940E0E28B3D6CE00E28FC5 /* Assets.xcassets */; };
+		055C638428C73A0400F22AAC /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0572690828C233780027D221 /* Constant.swift */; };
 		0572690928C233780027D221 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0572690828C233780027D221 /* Constant.swift */; };
 		05940E0B28B3D6CC00E28FC5 /* DevoteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05940E0A28B3D6CC00E28FC5 /* DevoteApp.swift */; };
 		05940E0D28B3D6CC00E28FC5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05940E0C28B3D6CC00E28FC5 /* ContentView.swift */; };
@@ -303,6 +305,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				055C638328C7397500F22AAC /* Assets.xcassets in Resources */,
 				055C637A28C63D2400F22AAC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -327,6 +330,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				055C637828C63D2200F22AAC /* DevoteWidget.swift in Sources */,
+				055C638428C73A0400F22AAC /* Constant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
