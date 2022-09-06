@@ -75,19 +75,32 @@ struct ContentView: View {
             }//Hstack
             Spacer()
 
-            List{
-                ForEach ( 0..<notes.count, id: \.self){ i in
-                    HStack{
-                        Capsule()
-                            .frame(width: 4)
-                            .foregroundColor(.accentColor)
-                        Text(notes[i].text)
-                            .lineLimit(1)
-                            .padding(.leading, 5)
-                        
-                    }//Hstack
-                }//Loop
-                .onDelete(perform: delete)
+            if notes.count > 0 {
+                List{
+                    ForEach ( 0..<notes.count, id: \.self){ i in
+                        NavigationLink(destination: DetailView(note: notes[i], count: notes.count, index: i)){
+                            HStack{
+                                Capsule()
+                                    .frame(width: 4)
+                                    .foregroundColor(.accentColor)
+                                Text(notes[i].text)
+                                    .lineLimit(1)
+                                    .padding(.leading, 5)
+                                
+                            }//Hstack
+                        }//nav
+                    }//Loop
+                    .onDelete(perform: delete)
+                }
+            } else {
+                Spacer()
+                Image(systemName: "note.text")
+                    .resizable()
+                    .scaledToFit()
+                    .foregroundColor(.accentColor)
+                    .padding(25)
+                    .opacity(0.25)
+                Spacer()
             }//List
         }//Vstack
         .navigationTitle("Notes")
