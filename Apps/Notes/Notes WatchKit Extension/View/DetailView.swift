@@ -15,6 +15,9 @@ struct DetailView: View {
     
     @State private var isCreditsPresented: Bool = false
     
+    @State private var isSettingsPresented: Bool = false
+
+    
     var body: some View {
         VStack(alignment: .center, spacing: 3){
             //Header
@@ -31,6 +34,12 @@ struct DetailView: View {
             //Footer
             HStack(alignment: .center){
                 Image(systemName: "gear")
+                    .onTapGesture {
+                        isSettingsPresented.toggle()
+                    }
+                    .sheet(isPresented: $isSettingsPresented) {
+                        SettingsView()
+                    }
                 Spacer()
                 Text("\(index + 1) / \(count)")
                 Spacer()

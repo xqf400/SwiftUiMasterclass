@@ -19,6 +19,7 @@
 		055C63BE28C76BA700F22AAC /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055C63BD28C76BA700F22AAC /* DetailView.swift */; };
 		055C63C028C8A8FF00F22AAC /* CreditsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055C63BF28C8A8FF00F22AAC /* CreditsView.swift */; };
 		055C63C328C8A95B00F22AAC /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055C63C228C8A95B00F22AAC /* HeaderView.swift */; };
+		055C63C528C8AC3A00F22AAC /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055C63C428C8AC3A00F22AAC /* Settings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		055C63BD28C76BA700F22AAC /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		055C63BF28C8A8FF00F22AAC /* CreditsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsView.swift; sourceTree = "<group>"; };
 		055C63C228C8A95B00F22AAC /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		055C63C428C8AC3A00F22AAC /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 				055C63A028C7421600F22AAC /* ContentView.swift */,
 				055C63BD28C76BA700F22AAC /* DetailView.swift */,
 				055C63BF28C8A8FF00F22AAC /* CreditsView.swift */,
+				055C63C428C8AC3A00F22AAC /* Settings.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 			files = (
 				055C63A128C7421600F22AAC /* ContentView.swift in Sources */,
 				055C63A328C7421600F22AAC /* NotesApp.swift in Sources */,
+				055C63C528C8AC3A00F22AAC /* Settings.swift in Sources */,
 				055C63A528C7421600F22AAC /* ComplicationController.swift in Sources */,
 				055C63C028C8A8FF00F22AAC /* CreditsView.swift in Sources */,
 				055C63BE28C76BA700F22AAC /* DetailView.swift in Sources */,
