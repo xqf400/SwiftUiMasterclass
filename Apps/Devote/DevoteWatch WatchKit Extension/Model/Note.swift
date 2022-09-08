@@ -9,5 +9,7 @@ import Foundation
 
 struct Note: Identifiable, Codable {
     let id: UUID
-    let text: String
+    let task: String
+    let timestamp: Date
+    let completion : Bool
 }

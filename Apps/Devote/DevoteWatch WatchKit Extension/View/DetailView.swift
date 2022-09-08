@@ -13,6 +13,8 @@ struct DetailView: View {
     let count: Int
     let index: Int
     
+    @Environment(\.managedObjectContext) private var viewContext
+    
     @State private var isCreditsPresented: Bool = false
     
     @State private var isSettingsPresented: Bool = false
@@ -25,7 +27,7 @@ struct DetailView: View {
             //Content
             Spacer()
             ScrollView(.vertical){
-                Text(note.text)
+                Text(note.task)
                     .font(.title3)
                     .fontWeight(.semibold)
                     .multilineTextAlignment(.center)
@@ -60,7 +62,8 @@ struct DetailView: View {
 }
 
 struct DetailView_Previews: PreviewProvider {
-    static var note = Note(id: UUID(), text: "test")
+    static let note = Note(id: UUID(), task: "tasksf", timestamp: Date(), completion: false)
+
     static var previews: some View {
         DetailView(note: note, count: 5, index: 1)
     }
