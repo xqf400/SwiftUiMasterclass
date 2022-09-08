@@ -9,7 +9,6 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
-    
     //MARK: Vars
     
     @AppStorage("isDarkMode") private var isDarkMode: Bool = false
@@ -25,8 +24,7 @@ struct ContentView: View {
     
     
     //MARK: Functions
-    
-    
+
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
             offsets.map { items[$0] }.forEach(viewContext.delete)
@@ -122,13 +120,17 @@ struct ContentView: View {
 
                     //MARK: Tasks
                     List(items.indexed(), id: \.1.self) { idx, item in
-                        //NavigationLink(destination: ){
+                    //List{
+                        //ForEach(items) { item in
+                            //NavigationLink(destination: ){
                         ListRowItemView(item: item)
+                        
                             .swipeActions(edge: .leading) {
                                 Button {
                                     checkItem(item: item)
                                 } label: {
                                     Label("Done", systemImage: item.completion ? "circle.dotted" : "checkmark.circle.fill")
+                                        .clipShape(Circle())
                                 }
                                 .tint(.green)
                             }
@@ -137,20 +139,25 @@ struct ContentView: View {
                                     deleteItem(item: item)
                                 } ) {
                                     Label("Delete", systemImage: "trash")
+                                        .clipShape(Circle())
                                 }
+                                .clipShape(Capsule())
                             }
                             .listRowBackground(
                                 LinearGradient(gradient: Gradient(colors: [Color("mygreen"), Color.orange]), startPoint: .leading, endPoint: .trailing)
-                                .clipShape(Capsule())
+                                //.clipShape(Capsule())
                             )
-                            
+                            .listRowSeparatorTint(Color.blue)
+
                     //}//NAV
+                        //}//Foreach
+                        //.onDelete(perform: deleteItems)
                     }//LIST
+                    
                     .listStyle(InsetGroupedListStyle())
                     .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.3), radius: 12)
                     .padding(.vertical, 0)
                     .frame(maxWidth: 640)
-                    .background(Color.clear)
                     //MARK: New Task button
                     Button {
                         showNewTaskItem = true
@@ -174,8 +181,8 @@ struct ContentView: View {
                     .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.25), radius: 8, x: 0, y: 4)
                 }//vstack
                 .blur(radius: showNewTaskItem ? 8.0 : 0, opaque: false)
-                .transition(.move(edge: .bottom))
-                .animation(.easeOut(duration: 0.5))
+                .transition(.move(edge: .top))
+                .animation(.easeOut(duration: 0.5))//easeOut(duration: 0.5))
                 
                 //MARK: New Task
                 if showNewTaskItem{
