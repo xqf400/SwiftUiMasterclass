@@ -10,6 +10,20 @@
 		052F093928B61FEB006E90AD /* sound-tap.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 052F093628B61FEB006E90AD /* sound-tap.mp3 */; };
 		052F093A28B61FEB006E90AD /* sound-ding.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 052F093728B61FEB006E90AD /* sound-ding.mp3 */; };
 		052F093B28B61FEB006E90AD /* sound-rise.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 052F093828B61FEB006E90AD /* sound-rise.mp3 */; };
+		05441B4528C9D2C2007FE4CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05441B4428C9D2C2007FE4CD /* Assets.xcassets */; };
+		05441B4B28C9D2C2007FE4CD /* DevoteWatch WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 05441B4A28C9D2C2007FE4CD /* DevoteWatch WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		05441B5028C9D2C2007FE4CD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05441B4F28C9D2C2007FE4CD /* ContentView.swift */; };
+		05441B5228C9D2C2007FE4CD /* DevoteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05441B5128C9D2C2007FE4CD /* DevoteApp.swift */; };
+		05441B5428C9D2C2007FE4CD /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05441B5328C9D2C2007FE4CD /* ComplicationController.swift */; };
+		05441B5628C9D2C2007FE4CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05441B5528C9D2C2007FE4CD /* Assets.xcassets */; };
+		05441B5928C9D2C2007FE4CD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05441B5828C9D2C2007FE4CD /* Preview Assets.xcassets */; };
+		05441B5D28C9D2C2007FE4CD /* DevoteWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 05441B4228C9D2C1007FE4CD /* DevoteWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		05441B6A28C9D328007FE4CD /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05441B6928C9D328007FE4CD /* HeaderView.swift */; };
+		05441B6C28C9D34B007FE4CD /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05441B6B28C9D34B007FE4CD /* Note.swift */; };
+		05441B7028C9D3B6007FE4CD /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05441B6F28C9D3B6007FE4CD /* DetailView.swift */; };
+		05441B7228C9D3CF007FE4CD /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05441B7128C9D3CF007FE4CD /* SettingsView.swift */; };
+		05441B7428C9D3E7007FE4CD /* CreditsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05441B7328C9D3E7007FE4CD /* CreditsView.swift */; };
+		05441B7528C9D46D007FE4CD /* Devote.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 05940E1528B3D6CE00E28FC5 /* Devote.xcdatamodeld */; };
 		055C635F28C6212900F22AAC /* HideKeyBoardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055C635E28C6212900F22AAC /* HideKeyBoardExtension.swift */; };
 		055C636128C6245900F22AAC /* BackgroundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055C636028C6245900F22AAC /* BackgroundImageView.swift */; };
 		055C636328C6259700F22AAC /* NewTaskItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055C636228C6259700F22AAC /* NewTaskItemView.swift */; };
@@ -34,6 +48,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		05441B4C28C9D2C2007FE4CD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 05940DFF28B3D6CC00E28FC5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 05441B4928C9D2C2007FE4CD;
+			remoteInfo = "DevoteWatch WatchKit Extension";
+		};
+		05441B5B28C9D2C2007FE4CD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 05940DFF28B3D6CC00E28FC5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 05441B4128C9D2C1007FE4CD;
+			remoteInfo = DevoteWatch;
+		};
 		055C637C28C63D2400F22AAC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 05940DFF28B3D6CC00E28FC5 /* Project object */;
@@ -44,6 +72,28 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		05441B5E28C9D2C2007FE4CD /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				05441B5D28C9D2C2007FE4CD /* DevoteWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05441B6128C9D2C2007FE4CD /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				05441B4B28C9D2C2007FE4CD /* DevoteWatch WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		055C638228C63D2400F22AAC /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -62,6 +112,20 @@
 		052F093728B61FEB006E90AD /* sound-ding.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "sound-ding.mp3"; sourceTree = "<group>"; };
 		052F093828B61FEB006E90AD /* sound-rise.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "sound-rise.mp3"; sourceTree = "<group>"; };
 		052F094228B62082006E90AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		05441B4228C9D2C1007FE4CD /* DevoteWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevoteWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		05441B4428C9D2C2007FE4CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		05441B4A28C9D2C2007FE4CD /* DevoteWatch WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "DevoteWatch WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		05441B4F28C9D2C2007FE4CD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		05441B5128C9D2C2007FE4CD /* DevoteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevoteApp.swift; sourceTree = "<group>"; };
+		05441B5328C9D2C2007FE4CD /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		05441B5528C9D2C2007FE4CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		05441B5828C9D2C2007FE4CD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		05441B5A28C9D2C2007FE4CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		05441B6928C9D328007FE4CD /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		05441B6B28C9D34B007FE4CD /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		05441B6F28C9D3B6007FE4CD /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		05441B7128C9D3CF007FE4CD /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		05441B7328C9D3E7007FE4CD /* CreditsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsView.swift; sourceTree = "<group>"; };
 		055C635E28C6212900F22AAC /* HideKeyBoardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyBoardExtension.swift; sourceTree = "<group>"; };
 		055C636028C6245900F22AAC /* BackgroundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundImageView.swift; sourceTree = "<group>"; };
 		055C636228C6259700F22AAC /* NewTaskItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskItemView.swift; sourceTree = "<group>"; };
@@ -86,6 +150,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		05441B4728C9D2C2007FE4CD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		055C636D28C63D2200F22AAC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -161,6 +232,64 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		05441B4328C9D2C1007FE4CD /* DevoteWatch */ = {
+			isa = PBXGroup;
+			children = (
+				05441B4428C9D2C2007FE4CD /* Assets.xcassets */,
+			);
+			path = DevoteWatch;
+			sourceTree = "<group>";
+		};
+		05441B4E28C9D2C2007FE4CD /* DevoteWatch WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				05441B6828C9D30E007FE4CD /* Model */,
+				05441B6728C9D302007FE4CD /* Component */,
+				05441B6628C9D2F8007FE4CD /* View */,
+				05441B5128C9D2C2007FE4CD /* DevoteApp.swift */,
+				05441B5328C9D2C2007FE4CD /* ComplicationController.swift */,
+				05441B5528C9D2C2007FE4CD /* Assets.xcassets */,
+				05441B5A28C9D2C2007FE4CD /* Info.plist */,
+				05441B5728C9D2C2007FE4CD /* Preview Content */,
+			);
+			path = "DevoteWatch WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		05441B5728C9D2C2007FE4CD /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				05441B5828C9D2C2007FE4CD /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		05441B6628C9D2F8007FE4CD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				05441B4F28C9D2C2007FE4CD /* ContentView.swift */,
+				05441B6F28C9D3B6007FE4CD /* DetailView.swift */,
+				05441B7128C9D3CF007FE4CD /* SettingsView.swift */,
+				05441B7328C9D3E7007FE4CD /* CreditsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		05441B6728C9D302007FE4CD /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				05441B6928C9D328007FE4CD /* HeaderView.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		05441B6828C9D30E007FE4CD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				05441B6B28C9D34B007FE4CD /* Note.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		055C637128C63D2200F22AAC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -185,6 +314,8 @@
 			children = (
 				05940E0928B3D6CC00E28FC5 /* Devote */,
 				055C637628C63D2200F22AAC /* DevoteWidget */,
+				05441B4328C9D2C1007FE4CD /* DevoteWatch */,
+				05441B4E28C9D2C2007FE4CD /* DevoteWatch WatchKit Extension */,
 				055C637128C63D2200F22AAC /* Frameworks */,
 				05940E0828B3D6CC00E28FC5 /* Products */,
 			);
@@ -195,6 +326,8 @@
 			children = (
 				05940E0728B3D6CC00E28FC5 /* Devote.app */,
 				055C637028C63D2200F22AAC /* DevoteWidgetExtension.appex */,
+				05441B4228C9D2C1007FE4CD /* DevoteWatch.app */,
+				05441B4A28C9D2C2007FE4CD /* DevoteWatch WatchKit Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -227,6 +360,40 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		05441B4128C9D2C1007FE4CD /* DevoteWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 05441B6528C9D2C2007FE4CD /* Build configuration list for PBXNativeTarget "DevoteWatch" */;
+			buildPhases = (
+				05441B4028C9D2C1007FE4CD /* Resources */,
+				05441B6128C9D2C2007FE4CD /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				05441B4D28C9D2C2007FE4CD /* PBXTargetDependency */,
+			);
+			name = DevoteWatch;
+			productName = DevoteWatch;
+			productReference = 05441B4228C9D2C1007FE4CD /* DevoteWatch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		05441B4928C9D2C2007FE4CD /* DevoteWatch WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 05441B6428C9D2C2007FE4CD /* Build configuration list for PBXNativeTarget "DevoteWatch WatchKit Extension" */;
+			buildPhases = (
+				05441B4628C9D2C2007FE4CD /* Sources */,
+				05441B4728C9D2C2007FE4CD /* Frameworks */,
+				05441B4828C9D2C2007FE4CD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "DevoteWatch WatchKit Extension";
+			productName = "DevoteWatch WatchKit Extension";
+			productReference = 05441B4A28C9D2C2007FE4CD /* DevoteWatch WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 		055C636F28C63D2200F22AAC /* DevoteWidgetExtension */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 055C637F28C63D2400F22AAC /* Build configuration list for PBXNativeTarget "DevoteWidgetExtension" */;
@@ -252,11 +419,13 @@
 				05940E0428B3D6CC00E28FC5 /* Frameworks */,
 				05940E0528B3D6CC00E28FC5 /* Resources */,
 				055C638228C63D2400F22AAC /* Embed App Extensions */,
+				05441B5E28C9D2C2007FE4CD /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				055C637D28C63D2400F22AAC /* PBXTargetDependency */,
+				05441B5C28C9D2C2007FE4CD /* PBXTargetDependency */,
 			);
 			name = Devote;
 			productName = Devote;
@@ -273,6 +442,12 @@
 				LastSwiftUpdateCheck = 1340;
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
+					05441B4128C9D2C1007FE4CD = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+					05441B4928C9D2C2007FE4CD = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
 					055C636F28C63D2200F22AAC = {
 						CreatedOnToolsVersion = 13.4.1;
 					};
@@ -296,11 +471,30 @@
 			targets = (
 				05940E0628B3D6CC00E28FC5 /* Devote */,
 				055C636F28C63D2200F22AAC /* DevoteWidgetExtension */,
+				05441B4128C9D2C1007FE4CD /* DevoteWatch */,
+				05441B4928C9D2C2007FE4CD /* DevoteWatch WatchKit Extension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		05441B4028C9D2C1007FE4CD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05441B4528C9D2C2007FE4CD /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05441B4828C9D2C2007FE4CD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05441B5928C9D2C2007FE4CD /* Preview Assets.xcassets in Resources */,
+				05441B5628C9D2C2007FE4CD /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		055C636E28C63D2200F22AAC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -325,6 +519,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		05441B4628C9D2C2007FE4CD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05441B7228C9D3CF007FE4CD /* SettingsView.swift in Sources */,
+				05441B6C28C9D34B007FE4CD /* Note.swift in Sources */,
+				05441B7028C9D3B6007FE4CD /* DetailView.swift in Sources */,
+				05441B5228C9D2C2007FE4CD /* DevoteApp.swift in Sources */,
+				05441B5028C9D2C2007FE4CD /* ContentView.swift in Sources */,
+				05441B7428C9D3E7007FE4CD /* CreditsView.swift in Sources */,
+				05441B5428C9D2C2007FE4CD /* ComplicationController.swift in Sources */,
+				05441B7528C9D46D007FE4CD /* Devote.xcdatamodeld in Sources */,
+				05441B6A28C9D328007FE4CD /* HeaderView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		055C636C28C63D2200F22AAC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -356,6 +566,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		05441B4D28C9D2C2007FE4CD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 05441B4928C9D2C2007FE4CD /* DevoteWatch WatchKit Extension */;
+			targetProxy = 05441B4C28C9D2C2007FE4CD /* PBXContainerItemProxy */;
+		};
+		05441B5C28C9D2C2007FE4CD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 05441B4128C9D2C1007FE4CD /* DevoteWatch */;
+			targetProxy = 05441B5B28C9D2C2007FE4CD /* PBXContainerItemProxy */;
+		};
 		055C637D28C63D2400F22AAC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 055C636F28C63D2200F22AAC /* DevoteWidgetExtension */;
@@ -364,6 +584,120 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		05441B5F28C9D2C2007FE4CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L2CJ78AL3T;
+				GENERATE_INFOPLIST_FILE = YES;
+				IBSC_MODULE = DevoteWatch_WatchKit_Extension;
+				INFOPLIST_KEY_CFBundleDisplayName = DevoteWatch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.fku.Devote;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fku.Devote.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.5;
+			};
+			name = Debug;
+		};
+		05441B6028C9D2C2007FE4CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L2CJ78AL3T;
+				GENERATE_INFOPLIST_FILE = YES;
+				IBSC_MODULE = DevoteWatch_WatchKit_Extension;
+				INFOPLIST_KEY_CFBundleDisplayName = DevoteWatch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.fku.Devote;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fku.Devote.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.5;
+			};
+			name = Release;
+		};
+		05441B6228C9D2C2007FE4CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"DevoteWatch WatchKit Extension/Preview Content\"";
+				DEVELOPMENT_TEAM = L2CJ78AL3T;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "DevoteWatch WatchKit Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "DevoteWatch WatchKit Extension";
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_MODULE_NAME).ComplicationController";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fku.Devote.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.5;
+			};
+			name = Debug;
+		};
+		05441B6328C9D2C2007FE4CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"DevoteWatch WatchKit Extension/Preview Content\"";
+				DEVELOPMENT_TEAM = L2CJ78AL3T;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "DevoteWatch WatchKit Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "DevoteWatch WatchKit Extension";
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_MODULE_NAME).ComplicationController";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fku.Devote.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.5;
+			};
+			name = Release;
+		};
 		055C638028C63D2400F22AAC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -599,6 +933,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		05441B6428C9D2C2007FE4CD /* Build configuration list for PBXNativeTarget "DevoteWatch WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05441B6228C9D2C2007FE4CD /* Debug */,
+				05441B6328C9D2C2007FE4CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		05441B6528C9D2C2007FE4CD /* Build configuration list for PBXNativeTarget "DevoteWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05441B5F28C9D2C2007FE4CD /* Debug */,
+				05441B6028C9D2C2007FE4CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		055C637F28C63D2400F22AAC /* Build configuration list for PBXNativeTarget "DevoteWidgetExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
