@@ -118,28 +118,8 @@ struct ContentView: View {
                     }
                     .padding()
                     .foregroundColor(.white)
-                    Spacer(minLength: 80)
-                    //MARK: New Task button
-                    Button {
-                        showNewTaskItem = true
-                        playSound(sound: "sound-ding", type: "mp3")
-                        feedback.notificationOccurred(.success)
-                    } label: {
-                        Image(systemName: "plus.circle")
-                            .font(.system(size: 30, weight: .semibold, design: .rounded))
-                            .foregroundColor(isDarkMode ? Color.black: Color.white)
-                        Text("New Task")
-                            .font(.system(size: 24, weight: .bold, design: .rounded))
-                            .foregroundColor(isDarkMode ? Color.black: Color.white)
-                    }
-                    .foregroundColor(.white)
-                    .padding(.horizontal, 60)
-                    .padding(.vertical, 15)
-                    .background(
-                        LinearGradient(gradient: Gradient(colors: [Color.yellow, Color.blue]), startPoint: .topLeading, endPoint: .bottomTrailing)
-                            .clipShape(Capsule())
-                    )
-                    .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.25), radius: 8, x: 0, y: 4)
+                    Spacer(minLength: 0)
+
                     //MARK: Tasks
                     List(items.indexed(), id: \.1.self) { idx, item in
                         //NavigationLink(destination: ){
@@ -159,13 +139,39 @@ struct ContentView: View {
                                     Label("Delete", systemImage: "trash")
                                 }
                             }
+                            .listRowBackground(
+                                LinearGradient(gradient: Gradient(colors: [Color("mygreen"), Color.orange]), startPoint: .leading, endPoint: .trailing)
+                                .clipShape(Capsule())
+                            )
+                            
                     //}//NAV
-                    }
+                    }//LIST
                     .listStyle(InsetGroupedListStyle())
                     .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.3), radius: 12)
                     .padding(.vertical, 0)
                     .frame(maxWidth: 640)
                     .background(Color.clear)
+                    //MARK: New Task button
+                    Button {
+                        showNewTaskItem = true
+                        playSound(sound: "sound-ding", type: "mp3")
+                        feedback.notificationOccurred(.success)
+                    } label: {
+                        Image(systemName: "plus.circle")
+                            .font(.system(size: 30, weight: .semibold, design: .rounded))
+                            .foregroundColor(isDarkMode ? Color.black: Color.white)
+                        Text("New Task")
+                            .font(.system(size: 24, weight: .bold, design: .rounded))
+                            .foregroundColor(isDarkMode ? Color.black: Color.white)
+                    }
+                    .foregroundColor(.white)
+                    .padding(.horizontal, 60)
+                    .padding(.vertical, 15)
+                    .background(
+                        LinearGradient(gradient: Gradient(colors: [Color.orange, Color.yellow]), startPoint: .topLeading, endPoint: .bottomTrailing)
+                            .clipShape(Capsule())
+                    )
+                    .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.25), radius: 8, x: 0, y: 4)
                 }//vstack
                 .blur(radius: showNewTaskItem ? 8.0 : 0, opaque: false)
                 .transition(.move(edge: .bottom))
@@ -192,10 +198,10 @@ struct ContentView: View {
             .navigationBarTitle("Daily Tasks", displayMode: .large)
             .navigationBarHidden(true)
             
-            .background(
-                BackgroundImageView()
-                    .blur(radius: showNewTaskItem ? 1.0 : 0, opaque: false)
-            )
+//            .background(
+//                BackgroundImageView()
+//                    .blur(radius: showNewTaskItem ? 1.0 : 0, opaque: false)
+//            )
             .background(
                 backgroundGradient.ignoresSafeArea(.all)
             )

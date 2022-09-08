@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "05441B4128C9D2C1007FE4CD"
-               BuildableName = "NotesWatch.app"
+               BuildableName = "ToFinish.app"
                BlueprintName = "DevoteWatch"
                ReferencedContainer = "container:Devote.xcodeproj">
             </BuildableReference>
@@ -59,7 +59,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "05441B4128C9D2C1007FE4CD"
-            BuildableName = "NotesWatch.app"
+            BuildableName = "ToFinish.app"
             BlueprintName = "DevoteWatch"
             ReferencedContainer = "container:Devote.xcodeproj">
          </BuildableReference>
@@ -98,7 +98,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "05441B4128C9D2C1007FE4CD"
-            BuildableName = "NotesWatch.app"
+            BuildableName = "ToFinish.app"
             BlueprintName = "DevoteWatch"
             ReferencedContainer = "container:Devote.xcodeproj">
          </BuildableReference>
