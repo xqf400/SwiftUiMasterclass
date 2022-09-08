@@ -16,7 +16,7 @@ struct PersistenceController {
         container = NSPersistentCloudKitContainer(name: "Notes") //NSPersistentContainer
         let description = container.persistentStoreDescriptions.first
         
-        description?.cloudKitContainerOptions = NSPersistentCloudKitContainerOptions(containerIdentifier: "iCloud.com.fku.Notes")
+        description?.cloudKitContainerOptions = NSPersistentCloudKitContainerOptions(containerIdentifier: "iCloud.com.fku.ToFinish")
         if inMemory {
             container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
         }

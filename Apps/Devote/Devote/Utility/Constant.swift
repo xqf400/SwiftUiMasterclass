@@ -29,7 +29,7 @@ func formatIt(date: Date)->String{
 //MARK: UI
 
 var backgroundGradient: LinearGradient{
-    return LinearGradient(gradient: Gradient(colors: [Color.pink, Color.blue]), startPoint: .topLeading, endPoint: .bottomTrailing)
+    return LinearGradient(gradient: Gradient(colors: [Color.yellow, Color.blue]), startPoint: .topLeading, endPoint: .bottomTrailing)
 }
 
 //MARK: UX

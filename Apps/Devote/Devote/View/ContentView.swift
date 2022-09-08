@@ -77,7 +77,7 @@ struct ContentView: View {
                     //MARK: Header
                     HStack(spacing: 10){
                         //Title
-                        Text("Devote")
+                        Text("To Finish")
                             .font(.system(.largeTitle, design: .rounded))
                             .fontWeight(.heavy)
                             .padding(.leading, 4)
@@ -127,7 +127,7 @@ struct ContentView: View {
                     .padding(.horizontal, 20)
                     .padding(.vertical, 15)
                     .background(
-                        LinearGradient(gradient: Gradient(colors: [Color.pink, Color.blue]), startPoint: .leading, endPoint: .trailing)
+                        LinearGradient(gradient: Gradient(colors: [Color.yellow, Color.blue]), startPoint: .leading, endPoint: .trailing)
                             .clipShape(Capsule())
                     )
                     .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.25), radius: 8, x: 0, y: 4)
@@ -149,11 +149,13 @@ struct ContentView: View {
                                     Label("Delete", systemImage: "trash")
                                 }
                             }
+
                     }
                     .listStyle(InsetGroupedListStyle())
                     .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.3), radius: 12)
                     .padding(.vertical, 0)
                     .frame(maxWidth: 640)
+                    .background(Color.clear)
                 }//vstack
                 .blur(radius: showNewTaskItem ? 8.0 : 0, opaque: false)
                 .transition(.move(edge: .bottom))
@@ -170,6 +172,8 @@ struct ContentView: View {
                         }
                     }
                     NewTaskItemView(isShowing: $showNewTaskItem)
+                }else{
+                    
                 }
             }//zstack
             .onAppear(){

@@ -17,7 +17,7 @@
 		05441B5428C9D2C2007FE4CD /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05441B5328C9D2C2007FE4CD /* ComplicationController.swift */; };
 		05441B5628C9D2C2007FE4CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05441B5528C9D2C2007FE4CD /* Assets.xcassets */; };
 		05441B5928C9D2C2007FE4CD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05441B5828C9D2C2007FE4CD /* Preview Assets.xcassets */; };
-		05441B5D28C9D2C2007FE4CD /* NotesWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 05441B4228C9D2C1007FE4CD /* NotesWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		05441B5D28C9D2C2007FE4CD /* ToFinish.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 05441B4228C9D2C1007FE4CD /* ToFinish.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		05441B6A28C9D328007FE4CD /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05441B6928C9D328007FE4CD /* HeaderView.swift */; };
 		05441B6C28C9D34B007FE4CD /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05441B6B28C9D34B007FE4CD /* Note.swift */; };
 		05441B7028C9D3B6007FE4CD /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05441B6F28C9D3B6007FE4CD /* DetailView.swift */; };
@@ -84,7 +84,7 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				05441B5D28C9D2C2007FE4CD /* NotesWatch.app in Embed Watch Content */,
+				05441B5D28C9D2C2007FE4CD /* ToFinish.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -118,7 +118,7 @@
 		052F093728B61FEB006E90AD /* sound-ding.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "sound-ding.mp3"; sourceTree = "<group>"; };
 		052F093828B61FEB006E90AD /* sound-rise.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "sound-rise.mp3"; sourceTree = "<group>"; };
 		052F094228B62082006E90AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		05441B4228C9D2C1007FE4CD /* NotesWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotesWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		05441B4228C9D2C1007FE4CD /* ToFinish.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToFinish.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05441B4428C9D2C2007FE4CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		05441B4A28C9D2C2007FE4CD /* DevoteWatch WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "DevoteWatch WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		05441B4F28C9D2C2007FE4CD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -354,7 +354,7 @@
 			children = (
 				05940E0728B3D6CC00E28FC5 /* Devote.app */,
 				055C637028C63D2200F22AAC /* DevoteWidgetExtension.appex */,
-				05441B4228C9D2C1007FE4CD /* NotesWatch.app */,
+				05441B4228C9D2C1007FE4CD /* ToFinish.app */,
 				05441B4A28C9D2C2007FE4CD /* DevoteWatch WatchKit Extension.appex */,
 			);
 			name = Products;
@@ -404,7 +404,7 @@
 			);
 			name = DevoteWatch;
 			productName = DevoteWatch;
-			productReference = 05441B4228C9D2C1007FE4CD /* NotesWatch.app */;
+			productReference = 05441B4228C9D2C1007FE4CD /* ToFinish.app */;
 			productType = "com.apple.product-type.application.watchapp2";
 		};
 		05441B4928C9D2C2007FE4CD /* DevoteWatch WatchKit Extension */ = {
@@ -630,10 +630,10 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IBSC_MODULE = DevoteWatch_WatchKit_Extension;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.fku.Devote;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.fku.tofinishit;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.fku.Devote.watchkitapp;
-				PRODUCT_NAME = NotesWatch;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fku.tofinishit.watchkitapp;
+				PRODUCT_NAME = ToFinish;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -655,10 +655,10 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IBSC_MODULE = DevoteWatch_WatchKit_Extension;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.fku.Devote;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.fku.tofinishit;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.fku.Devote.watchkitapp;
-				PRODUCT_NAME = NotesWatch;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fku.tofinishit.watchkitapp;
+				PRODUCT_NAME = ToFinish;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -680,7 +680,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DevoteWatch WatchKit Extension/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "DevoteWatch WatchKit Extension";
+				INFOPLIST_KEY_CFBundleDisplayName = "ToFinishWatch WatchKit Extension";
 				INFOPLIST_KEY_CLKComplicationPrincipalClass = DevoteWatch_WatchKit_Extension.ComplicationController;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -689,7 +689,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.fku.Devote.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fku.tofinishit.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -712,7 +712,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DevoteWatch WatchKit Extension/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "DevoteWatch WatchKit Extension";
+				INFOPLIST_KEY_CFBundleDisplayName = "ToFinishWatch WatchKit Extension";
 				INFOPLIST_KEY_CLKComplicationPrincipalClass = DevoteWatch_WatchKit_Extension.ComplicationController;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -721,7 +721,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.fku.Devote.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fku.tofinishit.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -742,7 +742,7 @@
 				DEVELOPMENT_TEAM = L2CJ78AL3T;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DevoteWidget/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = DevoteWidget;
+				INFOPLIST_KEY_CFBundleDisplayName = ToFinishWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -750,7 +750,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.fku.Devote.DevoteWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fku.tofinishit.ToFinishWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -769,7 +769,7 @@
 				DEVELOPMENT_TEAM = L2CJ78AL3T;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DevoteWidget/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = DevoteWidget;
+				INFOPLIST_KEY_CFBundleDisplayName = ToFinishWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -777,7 +777,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.fku.Devote.DevoteWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fku.tofinishit.ToFinishWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -914,7 +914,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Devote/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Notes;
+				INFOPLIST_KEY_CFBundleDisplayName = ToFinish;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -926,7 +926,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.fku.Devote;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fku.tofinishit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -948,7 +948,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Devote/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Notes;
+				INFOPLIST_KEY_CFBundleDisplayName = ToFinish;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -960,7 +960,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.fku.Devote;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fku.tofinishit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

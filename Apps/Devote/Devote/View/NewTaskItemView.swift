@@ -50,7 +50,7 @@ struct NewTaskItemView: View {
             Spacer()
             VStack(spacing: 16){
                 TextField("New Task", text: $task)
-                    .foregroundColor(.pink)
+                    .foregroundColor(.blue)
                     .font(.system(size: 24, weight: .bold, design: .rounded))
                     .padding()
                     .background(
@@ -68,8 +68,8 @@ struct NewTaskItemView: View {
                     Spacer()
                 }
                 .padding()
-                .foregroundColor(.white)
-                .background(isButtonDisabled ? Color.blue : Color.pink)
+                .foregroundColor(isButtonDisabled ? .white : .black)
+                .background(isButtonDisabled ? Color.blue : Color.yellow)
                 .cornerRadius(10)
                 .disabled(isButtonDisabled)
                 .onTapGesture {

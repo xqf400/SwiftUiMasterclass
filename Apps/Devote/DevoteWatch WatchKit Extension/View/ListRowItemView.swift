@@ -17,7 +17,7 @@ struct ListRowItemView: View {
             Text(item.task ?? "")
                 .font(.system(.title3, design: .rounded))
                 .fontWeight(.medium)
-                .foregroundColor(item.completion ? Color.pink : Color.primary)
+                .foregroundColor(item.completion ? Color.yellow : Color.primary)
                 .padding(.vertical, 8)
                 .animation(.default)
         }//Toggle
