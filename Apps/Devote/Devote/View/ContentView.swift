@@ -82,7 +82,7 @@ struct ContentView: View {
                             .fontWeight(.heavy)
                             .padding(.leading, 4)
                             .foregroundColor(isDarkMode ? Color.black: Color.white)
-                        Spacer()
+                        Spacer(minLength: 100)
                         /*
                          //Edit button
                          EditButton()
@@ -95,6 +95,15 @@ struct ContentView: View {
                          .foregroundColor(isDarkMode ? Color.black: Color.white)
                          */
                         //Appearence button
+                        Button {
+                            print("Credits Screen")
+                        } label: {
+                            Image(systemName: isDarkMode ? "info.circle": "info.circle")
+                                .frame(width: 24, height: 24)
+                                .font(.system(.title, design: .rounded))
+                        }
+                        .foregroundColor(isDarkMode ? Color.black: Color.white)
+                        Spacer()
                         Button {
                             //Toggle Apperance
                             isDarkMode.toggle()
