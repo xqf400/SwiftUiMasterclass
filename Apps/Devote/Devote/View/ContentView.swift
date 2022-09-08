@@ -133,10 +133,10 @@ struct ContentView: View {
                             .foregroundColor(isDarkMode ? Color.black: Color.white)
                     }
                     .foregroundColor(.white)
-                    .padding(.horizontal, 20)
+                    .padding(.horizontal, 60)
                     .padding(.vertical, 15)
                     .background(
-                        LinearGradient(gradient: Gradient(colors: [Color.yellow, Color.blue]), startPoint: .leading, endPoint: .trailing)
+                        LinearGradient(gradient: Gradient(colors: [Color.yellow, Color.blue]), startPoint: .topLeading, endPoint: .bottomTrailing)
                             .clipShape(Capsule())
                     )
                     .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.25), radius: 8, x: 0, y: 4)
