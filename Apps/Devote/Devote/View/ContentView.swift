@@ -141,7 +141,8 @@ struct ContentView: View {
                     )
                     .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.25), radius: 8, x: 0, y: 4)
                     //MARK: Tasks
-                    List(items) { item in
+                    List(items.indexed(), id: \.1.self) { idx, item in
+                        //NavigationLink(destination: ){
                         ListRowItemView(item: item)
                             .swipeActions(edge: .leading) {
                                 Button {
@@ -158,7 +159,7 @@ struct ContentView: View {
                                     Label("Delete", systemImage: "trash")
                                 }
                             }
-
+                    //}//NAV
                     }
                     .listStyle(InsetGroupedListStyle())
                     .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.3), radius: 12)
