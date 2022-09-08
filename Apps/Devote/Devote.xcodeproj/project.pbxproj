@@ -28,6 +28,8 @@
 		05441B7928C9D5FD007FE4CD /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05441B7828C9D5FD007FE4CD /* CloudKit.framework */; };
 		05441B7C28C9D622007FE4CD /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05441B7B28C9D622007FE4CD /* CloudKit.framework */; };
 		05441B7E28C9D94F007FE4CD /* AppDelegateU.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05441B7D28C9D94F007FE4CD /* AppDelegateU.swift */; };
+		05441B8528C9F02D007FE4CD /* ListRowItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05441B8428C9F02D007FE4CD /* ListRowItemView.swift */; };
+		05441B8828C9F061007FE4CD /* CheckboxStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05441B8728C9F061007FE4CD /* CheckboxStyle.swift */; };
 		055C635F28C6212900F22AAC /* HideKeyBoardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055C635E28C6212900F22AAC /* HideKeyBoardExtension.swift */; };
 		055C636128C6245900F22AAC /* BackgroundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055C636028C6245900F22AAC /* BackgroundImageView.swift */; };
 		055C636328C6259700F22AAC /* NewTaskItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055C636228C6259700F22AAC /* NewTaskItemView.swift */; };
@@ -135,6 +137,8 @@
 		05441B7A28C9D61E007FE4CD /* Devote.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Devote.entitlements; sourceTree = "<group>"; };
 		05441B7B28C9D622007FE4CD /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		05441B7D28C9D94F007FE4CD /* AppDelegateU.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateU.swift; sourceTree = "<group>"; };
+		05441B8428C9F02D007FE4CD /* ListRowItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowItemView.swift; sourceTree = "<group>"; };
+		05441B8728C9F061007FE4CD /* CheckboxStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxStyle.swift; sourceTree = "<group>"; };
 		055C635E28C6212900F22AAC /* HideKeyBoardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyBoardExtension.swift; sourceTree = "<group>"; };
 		055C636028C6245900F22AAC /* BackgroundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundImageView.swift; sourceTree = "<group>"; };
 		055C636228C6259700F22AAC /* NewTaskItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskItemView.swift; sourceTree = "<group>"; };
@@ -254,6 +258,7 @@
 		05441B4E28C9D2C2007FE4CD /* DevoteWatch WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				05441B8628C9F04B007FE4CD /* Style */,
 				05441B7728C9D5DF007FE4CD /* DevoteWatch WatchKit Extension.entitlements */,
 				05441B6828C9D30E007FE4CD /* Model */,
 				05441B6728C9D302007FE4CD /* Component */,
@@ -282,6 +287,7 @@
 				05441B6F28C9D3B6007FE4CD /* DetailView.swift */,
 				05441B7128C9D3CF007FE4CD /* SettingsView.swift */,
 				05441B7328C9D3E7007FE4CD /* CreditsView.swift */,
+				05441B8428C9F02D007FE4CD /* ListRowItemView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -300,6 +306,14 @@
 				05441B6B28C9D34B007FE4CD /* Note.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		05441B8628C9F04B007FE4CD /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				05441B8728C9F061007FE4CD /* CheckboxStyle.swift */,
+			);
+			path = Style;
 			sourceTree = "<group>";
 		};
 		055C637128C63D2200F22AAC /* Frameworks */ = {
@@ -546,8 +560,10 @@
 				05441B5028C9D2C2007FE4CD /* ContentView.swift in Sources */,
 				05441B7428C9D3E7007FE4CD /* CreditsView.swift in Sources */,
 				05441B5428C9D2C2007FE4CD /* ComplicationController.swift in Sources */,
+				05441B8528C9F02D007FE4CD /* ListRowItemView.swift in Sources */,
 				05441B7528C9D46D007FE4CD /* Notes.xcdatamodeld in Sources */,
 				05441B6A28C9D328007FE4CD /* HeaderView.swift in Sources */,
+				05441B8828C9F061007FE4CD /* CheckboxStyle.swift in Sources */,
 				05441B7628C9D5BE007FE4CD /* Persistence.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

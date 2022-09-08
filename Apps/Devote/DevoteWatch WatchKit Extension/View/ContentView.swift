@@ -50,7 +50,7 @@ struct ContentView: View {
         }*/
     }
     
-    func delete(offsets: IndexSet){
+    func deleteItems(offsets: IndexSet){
 //        withAnimation {
 //            notes.remove(atOffsets: offsets)
 //            save()
@@ -111,7 +111,13 @@ struct ContentView: View {
             Spacer()
 
             if items.count > 0 {
+
                 List{
+                    ForEach(items) { item in
+                       ListRowItemView(item: item)
+                    }
+                    .onDelete(perform: deleteItems)
+                    /*
                     ForEach ( 0..<items.count, id: \.self){ i in
                         NavigationLink(destination: DetailView(note: Note(id: items[i].id!, task: items[i].task!, timestamp: items[i].timestamp!, completion: items[i].completion), count: items.count, index: i)){
                             HStack{
@@ -125,7 +131,7 @@ struct ContentView: View {
                             }//Hstack
                         }//nav
                     }//Loop
-                    .onDelete(perform: delete)
+                    .onDelete(perform: deleteItems)*/
                 }
             } else {
                 Spacer()
