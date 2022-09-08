@@ -7,11 +7,13 @@
 
 import SwiftUI
 
+
 @main
 struct DevoteApp: App {
-    let persistenceController = PersistenceController.shared
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
     @AppStorage("isDarkMode") var isDarkMode: Bool = false
+    let persistenceController = PersistenceController.shared
 
     var body: some Scene {
         WindowGroup {

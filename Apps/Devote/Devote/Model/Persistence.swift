@@ -10,10 +10,13 @@ import CoreData
 struct PersistenceController {
     static let shared = PersistenceController()
 
-    let container: NSPersistentContainer //NSpersistenCloudContainer
+    let container: NSPersistentCloudKitContainer //NSpersistenCloudContainer
 
     init(inMemory: Bool = false) {
-        container = NSPersistentContainer(name: "Devote") //NSpersistenCloudContainer
+        container = NSPersistentCloudKitContainer(name: "Notes") //NSPersistentContainer
+        let description = container.persistentStoreDescriptions.first
+        
+        description?.cloudKitContainerOptions = NSPersistentCloudKitContainerOptions(containerIdentifier: "iCloud.com.fku.Notes")
         if inMemory {
             container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
         }
@@ -24,7 +27,7 @@ struct PersistenceController {
         })
         container.viewContext.automaticallyMergesChangesFromParent = true
     }
-    
+
     static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
@@ -43,6 +46,10 @@ struct PersistenceController {
         }
         return result
     }()
+    
+    
+
+    
     
     
 }
