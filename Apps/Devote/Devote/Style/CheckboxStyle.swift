@@ -11,7 +11,7 @@ struct CheckboxStyle: ToggleStyle {
     
     func makeBody(configuration: Configuration) -> some View {
         return HStack {
-            Image(systemName: configuration.isOn ? "checkmark.circle.fill" : "circle")
+            Image(systemName: configuration.isOn ? "checkmark.circle.fill" : "circle.dotted")
                 .foregroundColor(configuration.isOn ? .pink: .primary)
                 .font(.system(size: 30, weight: .semibold, design: .rounded))
                 .onTapGesture {

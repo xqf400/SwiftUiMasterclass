@@ -25,7 +25,7 @@ struct ContentView: View {
     
     
     //MARK: Functions
-
+    
     
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
@@ -34,13 +34,39 @@ struct ContentView: View {
             do {
                 try viewContext.save()
             } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
                 let nsError = error as NSError
                 fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
             }
         }
     }
+    
+    private func deleteItem(item: Item) {
+        withAnimation {
+            viewContext.delete(item)
+            do {
+                try viewContext.save()
+                print("Deleted")
+            } catch {
+                
+                let nsError = error as NSError
+                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            }
+        }
+    }
+    
+    private func checkItem(item:Item){
+        withAnimation {
+            item.completion.toggle()
+            do {
+                try viewContext.save()
+                print("checked")
+            } catch {
+                let nsError = error as NSError
+                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            }
+        }
+    }
+    
     
     //MARK: BODY
     var body: some View {
@@ -57,15 +83,17 @@ struct ContentView: View {
                             .padding(.leading, 4)
                             .foregroundColor(isDarkMode ? Color.black: Color.white)
                         Spacer()
-                        //Edit button
-                        EditButton()
-                            .font(.system(size: 16, weight: .semibold, design: .rounded))
-                            .padding(.horizontal, 10)
-                            .frame(minWidth: 70, minHeight: 24)
-                            .background(
-                                Capsule().stroke(isDarkMode ? Color.black: Color.white, lineWidth: 2)
-                            )
-                            .foregroundColor(isDarkMode ? Color.black: Color.white)
+                        /*
+                         //Edit button
+                         EditButton()
+                         .font(.system(size: 16, weight: .semibold, design: .rounded))
+                         .padding(.horizontal, 10)
+                         .frame(minWidth: 70, minHeight: 24)
+                         .background(
+                         Capsule().stroke(isDarkMode ? Color.black: Color.white, lineWidth: 2)
+                         )
+                         .foregroundColor(isDarkMode ? Color.black: Color.white)
+                         */
                         //Appearence button
                         Button {
                             //Toggle Apperance
@@ -104,13 +132,24 @@ struct ContentView: View {
                     )
                     .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.25), radius: 8, x: 0, y: 4)
                     //MARK: Tasks
-                    
-                    List {
-                        ForEach(items) { item in
-                           ListRowItemView(item: item)
-                        }
-                        .onDelete(perform: deleteItems)
-                    }//list
+                    List(items) { item in
+                        ListRowItemView(item: item)
+                            .swipeActions(edge: .leading) {
+                                Button {
+                                    checkItem(item: item)
+                                } label: {
+                                    Label("Done", systemImage: item.completion ? "circle.dotted" : "checkmark.circle.fill")
+                                }
+                                .tint(.green)
+                            }
+                            .swipeActions(edge: .trailing) {
+                                Button(role: .destructive, action: {
+                                    deleteItem(item: item)
+                                } ) {
+                                    Label("Delete", systemImage: "trash")
+                                }
+                            }
+                    }
                     .listStyle(InsetGroupedListStyle())
                     .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.3), radius: 12)
                     .padding(.vertical, 0)
@@ -125,11 +164,11 @@ struct ContentView: View {
                     BlankView(
                         backgroundColor: isDarkMode ? .black : .gray,
                         backgroundOpacity: isDarkMode ? 0.3 : 0.5)
-                        .onTapGesture {
-                            withAnimation {
-                                showNewTaskItem = false
-                            }
+                    .onTapGesture {
+                        withAnimation {
+                            showNewTaskItem = false
                         }
+                    }
                     NewTaskItemView(isShowing: $showNewTaskItem)
                 }
             }//zstack
@@ -138,7 +177,7 @@ struct ContentView: View {
             }
             .navigationBarTitle("Daily Tasks", displayMode: .large)
             .navigationBarHidden(true)
- 
+            
             .background(
                 BackgroundImageView()
                     .blur(radius: showNewTaskItem ? 1.0 : 0, opaque: false)

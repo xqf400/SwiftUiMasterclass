@@ -23,41 +23,10 @@ struct ContentView: View {
     private var items: FetchedResults<Item>
     
     //MARK: Functions
-    
-    func save() {
-        //dump(notes) // see in console
-        /*
-        do{
-            let data = try JSONEncoder().encode(notes)
-            let url = getDokumentDirectory().appendingPathComponent("notes")
-            try data.write(to: url)
-        }catch{
-            print("Saving data has failed")
-        }*/
-    }
-    
-    func load(){
-        /*
-        DispatchQueue.main.async {
-            do{
-                let url = getDokumentDirectory().appendingPathComponent("notes")
-
-                let data = try Data(contentsOf: url)
-                notes = try JSONDecoder().decode([Note].self, from: data)
-            }catch{
-                //nothing no notes
-            }
-        }*/
-    }
-    
+   
     func deleteItems(offsets: IndexSet){
-//        withAnimation {
-//            notes.remove(atOffsets: offsets)
-//            save()
-//        }
         withAnimation {
             offsets.map { items[$0] }.forEach(viewContext.delete)
-            
             do {
                 try viewContext.save()
             } catch {
@@ -67,10 +36,32 @@ struct ContentView: View {
         }
     }
     
-//    func getDokumentDirectory() -> URL {
-//        let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-//        return path[0]
-//    }
+    private func deleteItem(item: Item) {
+        withAnimation {
+            viewContext.delete(item)
+            do {
+                try viewContext.save()
+                print("Deleted")
+            } catch {
+
+                let nsError = error as NSError
+                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            }
+        }
+    }
+    
+    private func checkItem(item:Item){
+        withAnimation {
+            item.completion.toggle()
+            do {
+                try viewContext.save()
+                print("checked")
+            } catch {
+                let nsError = error as NSError
+                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            }
+        }
+    }
     
     //MARK: Body
     
@@ -90,48 +81,53 @@ struct ContentView: View {
                     newItem.id = UUID()
                     
                     do {
-                    try viewContext.save()
+                        try viewContext.save()
                     } catch {
-                    let nsError = error as NSError
-                    fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+                        let nsError = error as NSError
+                        fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
                     }
                     
                     task = ""
                     //save()
                 } label: {
                     Image(systemName: "plus.circle")
-                        .font(.system(size: 42, weight: .semibold))
+                        .font(.system(size: 32, weight: .semibold))
                 }
                 .fixedSize()
                 .buttonStyle(PlainButtonStyle())
-                .foregroundColor(.accentColor)
-                //.buttonStyle(BorderedButtonStyle(tint: .accentColor))
-
+                .foregroundColor(.accentColor)                
             }//Hstack
             Spacer()
-
+            
             if items.count > 0 {
-
-                List{
-                    ForEach(items) { item in
-                       ListRowItemView(item: item)
-                    }
-                    .onDelete(perform: deleteItems)
-                    /*
-                    ForEach ( 0..<items.count, id: \.self){ i in
-                        NavigationLink(destination: DetailView(note: Note(id: items[i].id!, task: items[i].task!, timestamp: items[i].timestamp!, completion: items[i].completion), count: items.count, index: i)){
-                            HStack{
-                                Capsule()
-                                    .frame(width: 4)
-                                    .foregroundColor(.accentColor)
-                                Text(items[i].task!)
-                                    .lineLimit(lineCount)
-                                    .padding(.leading, 5)
-                                
-                            }//Hstack
-                        }//nav
-                    }//Loop
-                    .onDelete(perform: deleteItems)*/
+                
+//                List{
+//                    //ForEach(items) { item in
+//                    ForEach ( 0..<items.count, id: \.self){ i in
+//                        NavigationLink(destination: DetailView(note: Note(id: items[i].id!, task: items[i].task!, timestamp: items[i].timestamp!, completion: items[i].completion), count: items.count, index: i)){
+//                            ListRowItemView(item: items[i])
+//                        }
+//                    }
+//                    .onDelete(perform: deleteItems)
+//
+//                }
+                List(items) { item in
+                    ListRowItemView(item: item)
+                        .swipeActions(edge: .leading) {
+                            Button {
+                                checkItem(item: item)
+                            } label: {
+                                Label("Done", systemImage: item.completion ? "circle.dotted" : "checkmark.circle.fill")
+                            }
+                            .tint(.green)
+                        }
+                        .swipeActions(edge: .trailing) {
+                            Button(role: .destructive, action: {
+                                deleteItem(item: item)
+                            } ) {
+                                Label("Delete", systemImage: "trash")
+                            }
+                        }
                 }
             } else {
                 Spacer()
@@ -144,10 +140,7 @@ struct ContentView: View {
                 Spacer()
             }//List
         }//Vstack
-        .navigationTitle("Notes")
-        .onAppear {
-            load()
-        }
+        //.navigationTitle("Notes")
     }
 }
 
