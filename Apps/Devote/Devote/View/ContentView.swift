@@ -98,7 +98,7 @@ struct ContentView: View {
                         Button {
                             print("Credits Screen")
                         } label: {
-                            Image(systemName: isDarkMode ? "info.circle": "info.circle")
+                            Image(systemName: isDarkMode ? "person.2.circle.fill": "person.2.circle")
                                 .frame(width: 24, height: 24)
                                 .font(.system(.title, design: .rounded))
                         }
