@@ -78,6 +78,7 @@ struct ContentView: View {
                     newItem.timestamp = Date()
                     newItem.task = task
                     newItem.completion = false
+                    newItem.showOnWidget = false
                     newItem.id = UUID()
                     
                     do {

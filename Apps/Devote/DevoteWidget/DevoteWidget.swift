@@ -76,21 +76,24 @@ struct DevoteWidgetEntryView : View {
         GeometryReader { geometry in
             VStack {
                 backgroundGradient
-
-                //VStack {
+                if items.count > 0 {
+                    //VStack {
                     ForEach(items) { item in
-                        if !item.completion {
+                        if item.showOnWidget {
                             //Text("\(item.task!)")
-                                Text(item.task ?? "")
-                                    .font(.system(.title3, design: .rounded))
-                                    .fontWeight(.medium)
-                                    .foregroundColor(item.completion ? Color.yellow : Color.primary)
-                                    .padding(.vertical, 8)
+                            Text(item.task ?? "")
+                                .font(.system(.title3, design: .rounded))
+                                .fontWeight(.medium)
+                                .foregroundColor(item.completion ? Color.green : Color.red)
+                                .padding(.vertical, 8)
                             
                             Divider()
                         }
                         
                     }
+                }else{
+                    Text("Empty")
+                }
                 //}
             }.background(
                 backgroundGradient
@@ -216,6 +219,7 @@ struct PersistenceController {
             newItem.timestamp = Date()
             newItem.task = "sample \(i)"
             newItem.completion = Bool.random()
+            newItem.showOnWidget = Bool.random()
             newItem.id = UUID()
         }
         do {

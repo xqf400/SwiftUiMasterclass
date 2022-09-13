@@ -40,6 +40,7 @@ struct PersistenceController {
             newItem.timestamp = Date()
             newItem.task = "sample \(i)"
             newItem.completion = false
+            newItem.showOnWidget = false
             newItem.id = UUID()
         }
         do {

@@ -54,7 +54,8 @@ struct ContentView: View {
     
     private func checkItem(item:Item){
         withAnimation {
-            item.completion.toggle()
+            //item.completion.toggle()
+            item.showOnWidget.toggle()
             do {
                 try viewContext.save()
                 print("checked")
@@ -130,10 +131,10 @@ struct ContentView: View {
                                     Button {
                                         checkItem(item: item)
                                     } label: {
-                                        Label("Done", systemImage: item.completion ? "circle.dotted" : "checkmark.circle.fill")
+                                        Label(item.showOnWidget ? "Widget": "Widget", systemImage: item.showOnWidget ? "circle.dotted" : "checkmark.circle.fill")
                                             .clipShape(Circle())
                                     }
-                                    .tint(.green)
+                                    .tint(item.showOnWidget ? .green : .red)
                                 }
                                 .swipeActions(edge: .trailing) {
                                     Button(role: .destructive, action: {

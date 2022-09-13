@@ -24,18 +24,19 @@ struct NewTaskItemView: View {
     private func addItem() {
         withAnimation {
             
-             let newItem = Item(context: viewContext)
-             newItem.timestamp = Date()
-             newItem.task = task
-             newItem.completion = false
-             newItem.id = UUID()
-             
-             do {
-             try viewContext.save()
-             } catch {
-             let nsError = error as NSError
-             fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-             }
+            let newItem = Item(context: viewContext)
+            newItem.timestamp = Date()
+            newItem.task = task
+            newItem.completion = false
+            newItem.id = UUID()
+            newItem.showOnWidget = false
+            
+            do {
+                try viewContext.save()
+            } catch {
+                let nsError = error as NSError
+                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            }
             
             
             task = ""
