@@ -7,6 +7,7 @@
 
 import WidgetKit
 import SwiftUI
+import CoreData
 
 struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
@@ -43,23 +44,67 @@ struct DevoteWidgetEntryView : View {
     
     @Environment(\.widgetFamily) var widgetFamily
     
+    @Environment(\.managedObjectContext) private var viewContext
+    
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
+        animation: .default)
+    private var items: FetchedResults<Item>
+    
     var fontStyle : Font {
-        if widgetFamily == .systemSmall {
+        switch widgetFamily {
+        case .accessoryCircular:
             return .system(.footnote, design: .rounded)
-        }else{
+        case .systemSmall:
+            return .system(.footnote, design: .rounded)
+        case .systemMedium:
+            return .system(.headline, design: .rounded)
+        case .systemLarge:
+            return .system(.headline, design: .rounded)
+        case .systemExtraLarge:
+            return .system(.headline, design: .rounded)
+        case .accessoryRectangular:
+            return .system(.footnote, design: .rounded)
+        case .accessoryInline:
+            return .system(.footnote, design: .rounded)
+        @unknown default:
             return .system(.headline, design: .rounded)
         }
     }
 
     var body: some View {
-        //Text(entry.date, style: .time)
         GeometryReader { geometry in
-            ZStack{
+            VStack {
                 backgroundGradient
+
+                //VStack {
+                    ForEach(items) { item in
+                        if !item.completion {
+                            //Text("\(item.task!)")
+                                Text(item.task ?? "")
+                                    .font(.system(.title3, design: .rounded))
+                                    .fontWeight(.medium)
+                                    .foregroundColor(item.completion ? Color.yellow : Color.primary)
+                                    .padding(.vertical, 8)
+                            
+                            Divider()
+                        }
+                        
+                    }
+                //}
+            }.background(
+                backgroundGradient
+            )
+            
+        }
+        //Text(entry.date, style: .time)
+        /*GeometryReader { geometry in
+            HStack{
+                backgroundGradient
+
                 Image("rocket-small")
                     .resizable()
                     .scaledToFit()
-                
                 Image("logo")
                     .resizable()
                     .frame(
@@ -72,8 +117,9 @@ struct DevoteWidgetEntryView : View {
                     )
                     .padding(.top, widgetFamily != .systemSmall ? 32 : 12)
                     .padding(.trailing, widgetFamily != .systemSmall ? 32 : 12)
-                
+
                 HStack {
+
                     Text("Just do it")
                         .foregroundColor(.white)
                         .font(fontStyle)
@@ -88,24 +134,34 @@ struct DevoteWidgetEntryView : View {
                     if widgetFamily != .systemSmall {
                         Spacer()
                     }
+
                 }//HStack
                 .padding()
                 .offset(y: (geometry.size.height / 2) - 24)
             }//Zstack
         }//geometry
+        .onAppear {
+            print("hello")
+        }*/
     }
 }
 
 @main
 struct DevoteWidget: Widget {
-    let kind: String = "DevoteWidget"
+    let kind: String = "ToFinishWidget"
+    var persistenceController = PersistenceController.shared
+
+
 
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             DevoteWidgetEntryView(entry: entry)
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
-        .configurationDisplayName("Devote Launcher")
+        .configurationDisplayName("ToFinish Widget")
         .description("This is an example widget for the personal task manager.")
+        //.supportedFamilies([.accessoryInline, .accessoryCircular, .accessoryRectangular]) //LS support
+
     }
 }
 
@@ -114,10 +170,65 @@ struct DevoteWidget_Previews: PreviewProvider {
         Group {
             DevoteWidgetEntryView(entry: SimpleEntry(date: Date()))
                 .previewContext(WidgetPreviewContext(family: .systemSmall))
+                .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
             DevoteWidgetEntryView(entry: SimpleEntry(date: Date()))
                 .previewContext(WidgetPreviewContext(family: .systemMedium))
+                .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
             DevoteWidgetEntryView(entry: SimpleEntry(date: Date()))
                 .previewContext(WidgetPreviewContext(family: .systemExtraLarge))
+                .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
         }
     }
 }
+
+
+struct PersistenceController {
+    static let shared = PersistenceController()
+
+    let container: NSPersistentCloudKitContainer //NSpersistenCloudContainer
+
+    init(inMemory: Bool = false) {
+        let containerURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.fku.ToFinish")!
+        let storeURL = containerURL.appendingPathComponent("Notes.plist")
+        let description = NSPersistentStoreDescription(url: storeURL)
+        //description.cloudKitContainerOptions = nil
+        description.setOption(true as NSNumber, forKey: NSPersistentHistoryTrackingKey)
+
+        container = NSPersistentCloudKitContainer(name: "Notes")
+        container.persistentStoreDescriptions = [description]
+        if inMemory {
+            print("in memory")
+            container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
+        }
+        container.loadPersistentStores { (storeDescription, error) in
+            if let error = error as NSError? {
+                fatalError("Unresolved error \(error), \(error.userInfo)")
+            }
+        }
+
+    }
+    
+    static var preview: PersistenceController = {
+        let result = PersistenceController(inMemory: true)
+        let viewContext = result.container.viewContext
+        for i in 0..<3 {
+            let newItem = Item(context: viewContext)
+            newItem.timestamp = Date()
+            newItem.task = "sample \(i)"
+            newItem.completion = Bool.random()
+            newItem.id = UUID()
+        }
+        do {
+            try viewContext.save()
+        } catch {
+            let nsError = error as NSError
+            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+        }
+        return result
+    }()
+    
+
+
+    
+}
+

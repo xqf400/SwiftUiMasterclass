@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05084C1628D0B09B005ADAAF /* Notes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 05940E1528B3D6CE00E28FC5 /* Notes.xcdatamodeld */; };
+		05084C1928D0BFDF005ADAAF /* ListRowItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05084C1728D0BFDA005ADAAF /* ListRowItemView.swift */; };
 		052F093928B61FEB006E90AD /* sound-tap.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 052F093628B61FEB006E90AD /* sound-tap.mp3 */; };
 		052F093A28B61FEB006E90AD /* sound-ding.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 052F093728B61FEB006E90AD /* sound-ding.mp3 */; };
 		052F093B28B61FEB006E90AD /* sound-rise.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 052F093828B61FEB006E90AD /* sound-rise.mp3 */; };
@@ -114,6 +116,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		05084C1428D0AF0D005ADAAF /* DevoteWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DevoteWidgetExtension.entitlements; sourceTree = "<group>"; };
+		05084C1728D0BFDA005ADAAF /* ListRowItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowItemView.swift; sourceTree = "<group>"; };
 		052F093628B61FEB006E90AD /* sound-tap.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "sound-tap.mp3"; sourceTree = "<group>"; };
 		052F093728B61FEB006E90AD /* sound-ding.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "sound-ding.mp3"; sourceTree = "<group>"; };
 		052F093828B61FEB006E90AD /* sound-rise.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "sound-rise.mp3"; sourceTree = "<group>"; };
@@ -333,6 +337,7 @@
 				055C637728C63D2200F22AAC /* DevoteWidget.swift */,
 				055C637928C63D2400F22AAC /* Assets.xcassets */,
 				055C637B28C63D2400F22AAC /* Info.plist */,
+				05084C1728D0BFDA005ADAAF /* ListRowItemView.swift */,
 			);
 			path = DevoteWidget;
 			sourceTree = "<group>";
@@ -340,6 +345,7 @@
 		05940DFE28B3D6CC00E28FC5 = {
 			isa = PBXGroup;
 			children = (
+				05084C1428D0AF0D005ADAAF /* DevoteWidgetExtension.entitlements */,
 				05940E0928B3D6CC00E28FC5 /* Devote */,
 				055C637628C63D2200F22AAC /* DevoteWidget */,
 				05441B4328C9D2C1007FE4CD /* DevoteWatch */,
@@ -575,6 +581,8 @@
 			files = (
 				055C637828C63D2200F22AAC /* DevoteWidget.swift in Sources */,
 				055C638428C73A0400F22AAC /* Constant.swift in Sources */,
+				05084C1928D0BFDF005ADAAF /* ListRowItemView.swift in Sources */,
+				05084C1628D0B09B005ADAAF /* Notes.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -738,6 +746,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = DevoteWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = L2CJ78AL3T;
@@ -745,6 +754,7 @@
 				INFOPLIST_FILE = DevoteWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = ToFinishWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -765,6 +775,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = DevoteWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = L2CJ78AL3T;
@@ -772,6 +783,7 @@
 				INFOPLIST_FILE = DevoteWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = ToFinishWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -13,13 +13,17 @@ struct PersistenceController {
     let container: NSPersistentCloudKitContainer //NSpersistenCloudContainer
 
     init(inMemory: Bool = false) {
+        let storeURL = AppGroup.facts.containerURL.appendingPathComponent("Notes.plist")
+
         container = NSPersistentCloudKitContainer(name: "Notes") //NSPersistentContainer
         let description = container.persistentStoreDescriptions.first
-        
+        description?.url = storeURL
         description?.cloudKitContainerOptions = NSPersistentCloudKitContainerOptions(containerIdentifier: "iCloud.com.fku.ToFinish")
         if inMemory {
+            print("in memory")
             container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
         }
+        //container.persistentStoreDescriptions = [description] //Use?
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
@@ -47,9 +51,16 @@ struct PersistenceController {
         return result
     }()
     
-    
+}
 
-    
-    
-    
+public enum AppGroup: String {
+  case facts = "group.com.fku.ToFinish"
+
+  public var containerURL: URL {
+    switch self {
+    case .facts:
+      return FileManager.default.containerURL(
+      forSecurityApplicationGroupIdentifier: self.rawValue)!
+    }
+  }
 }
