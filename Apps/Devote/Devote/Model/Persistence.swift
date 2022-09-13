@@ -13,11 +13,13 @@ struct PersistenceController {
     let container: NSPersistentCloudKitContainer //NSpersistenCloudContainer
 
     init(inMemory: Bool = false) {
-        let storeURL = AppGroup.facts.containerURL.appendingPathComponent("Notes.plist")
-
         container = NSPersistentCloudKitContainer(name: "Notes") //NSPersistentContainer
         let description = container.persistentStoreDescriptions.first
+        
+#if os(iOS)
+        let storeURL = AppGroup.facts.containerURL.appendingPathComponent("Notes.plist")
         description?.url = storeURL
+#endif
         description?.cloudKitContainerOptions = NSPersistentCloudKitContainerOptions(containerIdentifier: "iCloud.com.fku.ToFinish")
         if inMemory {
             print("in memory")
