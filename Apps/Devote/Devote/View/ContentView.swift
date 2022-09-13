@@ -61,7 +61,6 @@ struct ContentView: View {
             do {
                 try viewContext.save()
                 WidgetCenter.shared.reloadAllTimelines()
-                print("checked")
             } catch {
                 let nsError = error as NSError
                 fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
@@ -129,13 +128,14 @@ struct ContentView: View {
                             //ForEach(items) { item in
                             //NavigationLink(destination: ){
                             ListRowItemView(item: item)
-                            
                                 .swipeActions(edge: .leading) {
                                     Button {
                                         checkItem(item: item)
                                     } label: {
+                                        /*
                                         Label("Widget", systemImage: item.showOnWidget ? "circle.dotted" : "checkmark.circle.fill")
-                                            .clipShape(Circle())
+                                            .clipShape(Circle())*/
+                                        Text(item.showOnWidget ? "Remove from widget": "Show on widget")
                                     }
                                     .tint(item.showOnWidget ? .green : .red)
                                 }
@@ -175,10 +175,14 @@ struct ContentView: View {
                                     Button {
                                         checkItem(item: item)
                                     } label: {
-                                        Label("Done", systemImage: item.completion ? "circle.dotted" : "checkmark.circle.fill")
-                                            .clipShape(Circle())
+                                        /*
+                                        Label("Widget",
+                                              systemImage: item.showOnWidget ? "checkmark.circle.fill" : "circle.dotted"
+                                        )
+                                            .clipShape(Circle())*/
+                                        Text(item.showOnWidget ? "Remove from widget": "Show on widget")
                                     }
-                                    .tint(.green)
+                                    .tint(item.showOnWidget ? .red : .green)
                                 }
                                 .swipeActions(edge: .trailing) {
                                     Button(role: .destructive, action: {

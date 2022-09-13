@@ -82,7 +82,7 @@ struct DevoteWidgetEntryView : View {
                         if item.showOnWidget {
                             //Text("\(item.task!)")
                             Text(item.task ?? "")
-                                .font(.system(.title3, design: .rounded))
+                                .font(.system(.body, design: .rounded))
                                 .fontWeight(.medium)
                                 .foregroundColor(item.completion ? Color.green : Color.red)
                                 .padding(.vertical, 8)
