@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import WidgetKit
 
 struct NewTaskItemView: View {
     
@@ -33,6 +34,7 @@ struct NewTaskItemView: View {
             
             do {
                 try viewContext.save()
+                WidgetCenter.shared.reloadAllTimelines()
             } catch {
                 let nsError = error as NSError
                 fatalError("Unresolved error \(nsError), \(nsError.userInfo)")

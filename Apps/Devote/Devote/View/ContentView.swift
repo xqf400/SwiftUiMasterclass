@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreData
+import WidgetKit
 
 struct ContentView: View {
     //MARK: Vars
@@ -28,9 +29,9 @@ struct ContentView: View {
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
             offsets.map { items[$0] }.forEach(viewContext.delete)
-            
             do {
                 try viewContext.save()
+                WidgetCenter.shared.reloadAllTimelines()
             } catch {
                 let nsError = error as NSError
                 fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
@@ -43,6 +44,7 @@ struct ContentView: View {
             viewContext.delete(item)
             do {
                 try viewContext.save()
+                WidgetCenter.shared.reloadAllTimelines()
                 print("Deleted")
             } catch {
                 
@@ -58,6 +60,7 @@ struct ContentView: View {
             item.showOnWidget.toggle()
             do {
                 try viewContext.save()
+                WidgetCenter.shared.reloadAllTimelines()
                 print("checked")
             } catch {
                 let nsError = error as NSError
@@ -131,7 +134,7 @@ struct ContentView: View {
                                     Button {
                                         checkItem(item: item)
                                     } label: {
-                                        Label(item.showOnWidget ? "Widget": "Widget", systemImage: item.showOnWidget ? "circle.dotted" : "checkmark.circle.fill")
+                                        Label("Widget", systemImage: item.showOnWidget ? "circle.dotted" : "checkmark.circle.fill")
                                             .clipShape(Circle())
                                     }
                                     .tint(item.showOnWidget ? .green : .red)

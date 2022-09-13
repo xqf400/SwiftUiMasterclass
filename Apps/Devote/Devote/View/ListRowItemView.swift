@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import WidgetKit
 
 struct ListRowItemView: View {
     
@@ -25,6 +26,7 @@ struct ListRowItemView: View {
         .onReceive(item.objectWillChange) { _ in
             if self.viewContext.hasChanges {
                 try? self.viewContext.save()
+                WidgetCenter.shared.reloadAllTimelines()
             }
         }
     }
