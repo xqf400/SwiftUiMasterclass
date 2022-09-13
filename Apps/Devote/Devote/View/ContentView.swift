@@ -119,45 +119,88 @@ struct ContentView: View {
                     Spacer(minLength: 0)
 
                     //MARK: Tasks
-                    List(items.indexed(), id: \.1.self) { idx, item in
-                    //List{
-                        //ForEach(items) { item in
+                    if #available(iOS 16.0, *) {
+                        List(items.indexed(), id: \.1.self) { idx, item in
+                            //List{
+                            //ForEach(items) { item in
                             //NavigationLink(destination: ){
-                        ListRowItemView(item: item)
-                        
-                            .swipeActions(edge: .leading) {
-                                Button {
-                                    checkItem(item: item)
-                                } label: {
-                                    Label("Done", systemImage: item.completion ? "circle.dotted" : "checkmark.circle.fill")
-                                        .clipShape(Circle())
+                            ListRowItemView(item: item)
+                            
+                                .swipeActions(edge: .leading) {
+                                    Button {
+                                        checkItem(item: item)
+                                    } label: {
+                                        Label("Done", systemImage: item.completion ? "circle.dotted" : "checkmark.circle.fill")
+                                            .clipShape(Circle())
+                                    }
+                                    .tint(.green)
                                 }
-                                .tint(.green)
-                            }
-                            .swipeActions(edge: .trailing) {
-                                Button(role: .destructive, action: {
-                                    deleteItem(item: item)
-                                } ) {
-                                    Label("Delete", systemImage: "trash")
-                                        .clipShape(Circle())
+                                .swipeActions(edge: .trailing) {
+                                    Button(role: .destructive, action: {
+                                        deleteItem(item: item)
+                                    } ) {
+                                        Label("Delete", systemImage: "trash")
+                                            .clipShape(Circle())
+                                    }
+                                    .clipShape(Capsule())
                                 }
-                                .clipShape(Capsule())
-                            }
-                            .listRowBackground(
-                                LinearGradient(gradient: Gradient(colors: [Color("mygreen"), Color.orange]), startPoint: .leading, endPoint: .trailing)
-                                //.clipShape(Capsule())
-                            )
-                            .listRowSeparatorTint(Color.blue)
-
-                    //}//NAV
-                        //}//Foreach
-                        //.onDelete(perform: deleteItems)
-                    }//LIST
+                                .listRowBackground(
+                                    LinearGradient(gradient: Gradient(colors: [Color("mygreen"), Color.orange]), startPoint: .leading, endPoint: .trailing)
+                                    //.clipShape(Capsule())
+                                )
+                                .listRowSeparatorTint(Color.blue)
+                            
+                            //}//NAV
+                            //}//Foreach
+                            //.onDelete(perform: deleteItems)
+                        }//LIST
+                        .scrollContentBackground(.hidden)
+                        .listStyle(InsetGroupedListStyle())
+                        .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.3), radius: 12)
+                        .padding(.vertical, 0)
+                        .frame(maxWidth: 640)
+                    } else {
+                        // Fallback on earlier versions
+                        List(items.indexed(), id: \.1.self) { idx, item in
+                            //List{
+                            //ForEach(items) { item in
+                            //NavigationLink(destination: ){
+                            ListRowItemView(item: item)
+                            
+                                .swipeActions(edge: .leading) {
+                                    Button {
+                                        checkItem(item: item)
+                                    } label: {
+                                        Label("Done", systemImage: item.completion ? "circle.dotted" : "checkmark.circle.fill")
+                                            .clipShape(Circle())
+                                    }
+                                    .tint(.green)
+                                }
+                                .swipeActions(edge: .trailing) {
+                                    Button(role: .destructive, action: {
+                                        deleteItem(item: item)
+                                    } ) {
+                                        Label("Delete", systemImage: "trash")
+                                            .clipShape(Circle())
+                                    }
+                                    .clipShape(Capsule())
+                                }
+                                .listRowBackground(
+                                    LinearGradient(gradient: Gradient(colors: [Color("mygreen"), Color.orange]), startPoint: .leading, endPoint: .trailing)
+                                    //.clipShape(Capsule())
+                                )
+                                .listRowSeparatorTint(Color.blue)
+                            
+                            //}//NAV
+                            //}//Foreach
+                            //.onDelete(perform: deleteItems)
+                        }//LIST
+                        .listStyle(InsetGroupedListStyle())
+                        .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.3), radius: 12)
+                        .padding(.vertical, 0)
+                        .frame(maxWidth: 640)
+                    }
                     
-                    .listStyle(InsetGroupedListStyle())
-                    .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.3), radius: 12)
-                    .padding(.vertical, 0)
-                    .frame(maxWidth: 640)
                     //MARK: New Task button
                     Button {
                         showNewTaskItem = true
