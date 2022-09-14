@@ -109,7 +109,7 @@ struct ContentView: View {
                         .offset(x: self.isTopCard(cardView: cardView) ? self.dragState.translation.width: 0, y: self.isTopCard(cardView: cardView) ? self.dragState.translation.height : 0)
                         .scaleEffect(self.dragState.isDragging && self.isTopCard(cardView: cardView) ? 0.85: 1.0)
                         .rotationEffect(Angle(degrees: self.isTopCard(cardView: cardView) ? Double(self.dragState.translation.width/12) : 0))
-                        .animation(.interpolatingSpring(stiffness: 120, damping: 120))
+                        .animation(.interpolatingSpring(stiffness: 120, damping: 120), value: self.dragState.translation)
                         .gesture(LongPressGesture(minimumDuration: 0.01)
                             .sequenced(before: DragGesture())
                             .updating(self.$dragState, body: { value, state, transaction in
