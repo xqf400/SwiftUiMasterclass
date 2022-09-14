@@ -15,4 +15,3 @@ struct HoneymoonApp: App {
         }
     }
 }
-    .supportedFamilies([.accessoryInline, .accessoryCircular, .accessoryRectangular])
