@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct GuideView: View {
+    
+    //MARK: Properties
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
         ScrollView(.vertical, showsIndicators: false){
             VStack(alignment: .center, spacing: 20) {
@@ -28,9 +32,9 @@ struct GuideView: View {
                     GuideComponent(title: "Book", subtitle: "Tap the Button", description: "Our selection ofresorts is the perfect setting for you to embark your new life together", icon: "checkmark.square")
                 }
                 Spacer(minLength: 10)
-                       
-                       Button(action: {
-                    print("button tape")
+                
+                Button(action: {
+                    self.presentationMode.wrappedValue.dismiss()
                 }, label: {
                     Text("Continue".uppercased())
                         .padding()
@@ -41,11 +45,11 @@ struct GuideView: View {
                         )
                         .foregroundColor(.white)
                 })
-        }
-        .frame(minWidth: 0, maxWidth: .infinity)
-        .padding(.top, 15)
-        .padding(.bottom, 25)
-        .padding(.horizontal, 25)
+            }
+            .frame(minWidth: 0, maxWidth: .infinity)
+            .padding(.top, 15)
+            .padding(.bottom, 25)
+            .padding(.horizontal, 25)
         }
     }
 }
