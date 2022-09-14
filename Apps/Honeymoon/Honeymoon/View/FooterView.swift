@@ -8,22 +8,26 @@
 import SwiftUI
 
 struct FooterView: View {
+    //MARK: Properties
+    
+    @Binding var showBookingAlert: Bool
+    
     var body: some View {
         HStack {
             Image(systemName: "xmark.circle")
                 .font(.system(size: 42, weight: .light))
             Spacer()
             Button {
-                print("suc")
+                self.showBookingAlert.toggle()
             } label: {
                 Text("Book Destination".uppercased())
                     .font(.system(.subheadline, design: .rounded))
                     .fontWeight(.heavy)
                     .padding(.horizontal, 20)
                     .padding(.vertical, 12)
-                    .accentColor(.pink)
+                    .accentColor(.blue)
                     .background(
-                        Capsule().stroke(.pink, lineWidth: 2)
+                        Capsule().stroke(.blue, lineWidth: 2)
                     )
             }
 
@@ -36,8 +40,10 @@ struct FooterView: View {
 }
 
 struct FooterView_Previews: PreviewProvider {
+    @State static var showAlert : Bool = false
+    
     static var previews: some View {
-        FooterView()
+        FooterView(showBookingAlert: $showAlert)
             .previewLayout(.fixed(width: 375, height: 80))
 
     }
