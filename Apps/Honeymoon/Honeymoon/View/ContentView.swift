@@ -133,14 +133,25 @@ struct ContentView: View {
                                         self.cardRemovalTransition = .tralingBottom
                                     }
                                 })
-                                .onEnded({ (value) in
-                                    guard case .second(true, let drag?) = value else{
-                                        return
-                                    }
-                                    if drag.translation.width < -self.dragAreaThreshold || drag.translation.width > self.dragAreaThreshold {
-                                        self.moveCards()
-                                    }
-                                })
+                                    .onEnded({ (value) in
+                                        guard case .second(true, let drag?) = value else{
+                                            return
+                                        }
+                                        if drag.translation.width < -self.dragAreaThreshold{
+                                            print("trash: \(cardView.honeymonn.place)")
+                                            UINotificationFeedbackGenerator().notificationOccurred(.warning)
+                                        }
+                                        if drag.translation.width > self.dragAreaThreshold {
+                                            print("liked: \(cardView.honeymonn.place)")
+                                            UINotificationFeedbackGenerator().notificationOccurred(.success)
+                                        }
+                                        
+                                        
+                                        if drag.translation.width < -self.dragAreaThreshold || drag.translation.width > self.dragAreaThreshold {
+                                            playSound(sound: "sound-rise", type: "mp3")
+                                            self.moveCards()
+                                        }
+                                    })
                         ).transition(self.cardRemovalTransition)
                 }
             }
