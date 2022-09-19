@@ -32,6 +32,7 @@ struct ContentView: View {
     private func moveCards(){
         cardViews.removeFirst()
         self.lastCardsIndex += 1
+        print("Destination: \(lastCardsIndex % honeymoonData.count)")
         let honeymoon = honeymoonData[lastCardsIndex % honeymoonData.count]
         let newCardView = CardView(honeymonn: honeymoon)
         cardViews.append(newCardView)

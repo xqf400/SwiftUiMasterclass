@@ -265,6 +265,18 @@ struct ContentView: View {
             )
         }//navigation
         .navigationViewStyle(StackNavigationViewStyle())
+        .onOpenURL { url in
+            print(url)
+            let id = "\(url)"
+            
+            for item in items {
+                let itemID = "\(item.id!)"
+                if id == itemID {
+                    print(item.task)
+                }
+            }
+
+        }
     }
 }//eoc
 
