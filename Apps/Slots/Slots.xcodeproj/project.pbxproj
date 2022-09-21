@@ -21,6 +21,7 @@
 		05084C6D28D21D9A005ADAAF /* casino-chips.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 05084C6528D21D9A005ADAAF /* casino-chips.mp3 */; };
 		055A26A628DB0FF10069FDB4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055A26A528DB0FF00069FDB4 /* Extensions.swift */; };
 		055A26A828DB12EF0069FDB4 /* ReelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055A26A728DB12EF0069FDB4 /* ReelView.swift */; };
+		055A26AA28DB32F20069FDB4 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055A26A928DB32F20069FDB4 /* InfoView.swift */; };
 		0589896628D8AFDA00C1495C /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0589896528D8AFDA00C1495C /* LogoView.swift */; };
 		0589896828D8B00300C1495C /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0589896728D8B00300C1495C /* Modifiers.swift */; };
 /* End PBXBuildFile section */
@@ -42,6 +43,7 @@
 		05084C6F28D21DF2005ADAAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		055A26A528DB0FF00069FDB4 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		055A26A728DB12EF0069FDB4 /* ReelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReelView.swift; sourceTree = "<group>"; };
+		055A26A928DB32F20069FDB4 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		0589896528D8AFDA00C1495C /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
 		0589896728D8B00300C1495C /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -125,6 +127,7 @@
 				05084C5228D21BFC005ADAAF /* ContentView.swift */,
 				0589896528D8AFDA00C1495C /* LogoView.swift */,
 				055A26A728DB12EF0069FDB4 /* ReelView.swift */,
+				055A26A928DB32F20069FDB4 /* InfoView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 				0589896628D8AFDA00C1495C /* LogoView.swift in Sources */,
 				055A26A828DB12EF0069FDB4 /* ReelView.swift in Sources */,
 				05084C5128D21BFC005ADAAF /* SlotsApp.swift in Sources */,
+				055A26AA28DB32F20069FDB4 /* InfoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

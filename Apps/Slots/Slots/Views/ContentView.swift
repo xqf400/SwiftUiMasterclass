@@ -155,7 +155,7 @@ struct ContentView: View {
             .overlay(
                 //Info
                 Button(action: {
-                    print("info view ")
+                    self.showingInfoView = true
                 }) {
                     Image(systemName: "info.circle")
                 }
@@ -166,6 +166,9 @@ struct ContentView: View {
             .frame(maxWidth: 720)
             //MARK: Popup
         }//Zstack
+        .sheet(isPresented: $showingInfoView) {
+            InfoView()
+        }
     }
 }
 
