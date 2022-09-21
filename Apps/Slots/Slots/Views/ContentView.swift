@@ -25,6 +25,55 @@ struct ContentView: View {
     @State private var animatingSymbol: Bool = false
     @State private var animatingModal: Bool = false
     
+    
+    //MARK: Functions
+    
+    //Spin the reels
+    func spinReels() {
+        //reels[0] = Int.random(in: 0...symbols.count-1)
+        //reels[1] = Int.random(in: 0...symbols.count-1)
+        //reels[2] = Int.random(in: 0...symbols.count-1)
+        reels = reels.map({ _ in // MARK: to learn map
+            Int.random(in: 0...symbols.count - 1)
+        })
+    }
+    //Check the winning
+    func checkWinning(){
+        if reels[0] == reels[1] && reels[1] == reels[2] && reels[2] == reels[0] {
+            //Player wins
+            playerWins()
+            //New Highscore
+            if coins > highscore {
+                newHighScore()
+            }
+        }else{
+            //Player loses
+            playerLoses()
+        }
+    }
+
+    func playerWins(){
+        coins += betAmount * 10
+    }
+    
+    func newHighScore(){
+        highscore = coins
+    }
+    
+    func playerLoses(){
+        coins -= betAmount
+    }
+    
+    func activateBet20(){
+        betAmount = 20
+    }
+    func activateBet10(){
+        betAmount = 10
+    }
+  
+    //Game is over
+    
+    
     //MARK: Body
     var body: some View {
         ZStack {
@@ -42,7 +91,7 @@ struct ContentView: View {
                         Text("Your\nCoins".uppercased())
                             .scoreLabelStyle()
                             .multilineTextAlignment(.trailing)
-                        Text("100")
+                        Text("\(coins)")
                             .scoreNumberSytle()
                             .modifier(ScoreNumberModifier())
                         
@@ -51,7 +100,7 @@ struct ContentView: View {
                     
                     Spacer()
                     HStack{
-                        Text("200")
+                        Text("\(highscore)")
                             .scoreNumberSytle()
                             .modifier(ScoreNumberModifier())
                         Text("High\nScore".uppercased())
@@ -65,7 +114,7 @@ struct ContentView: View {
                     //MARK: Reel 1
                     ZStack{
                         ReelView()
-                        Image("gfx-bell")
+                        Image(symbols[reels[0]])
                             .resizable()
                             .modifier(ImageModifier())
                     }
@@ -73,7 +122,7 @@ struct ContentView: View {
                         //MARK: Reel 2
                         ZStack{
                             ReelView()
-                            Image("gfx-seven")
+                            Image(symbols[reels[1]])
                                 .resizable()
                                 .modifier(ImageModifier())
                         }
@@ -82,7 +131,7 @@ struct ContentView: View {
                         //MARK: Reel 3
                         ZStack{
                             ReelView()
-                            Image("gfx-cherry")
+                            Image(symbols[reels[2]])
                                 .resizable()
                                 .modifier(ImageModifier())
                         }
@@ -90,7 +139,10 @@ struct ContentView: View {
                     .frame(maxWidth: 500)
                     //MARK: Spin Button
                     Button {
-                        print("spin")
+                        //spin the reels
+                        self.spinReels()
+                        //check winning
+                        self.checkWinning()
                     } label: {
                         Image("gfx-spin")
                             .renderingMode(.original)
@@ -107,7 +159,7 @@ struct ContentView: View {
                     //MARK: Bet 20
                     HStack(alignment: .center, spacing: 10) {
                         Button {
-                            print("bet 20")
+                            self.activateBet20()
                         } label: {
                             Text("20")
                                 .fontWeight(.heavy)
@@ -128,7 +180,7 @@ struct ContentView: View {
                             .opacity(1)
                             .modifier(CasinoChipsModifier())
                         Button {
-                            print("bet 10")
+                            self.activateBet10()
                         } label: {
                             Text("10")
                                 .fontWeight(.heavy)
