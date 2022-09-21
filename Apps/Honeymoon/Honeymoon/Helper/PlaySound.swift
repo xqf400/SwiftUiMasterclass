@@ -9,16 +9,19 @@ import Foundation
 import AVFoundation
 
 var audioPlayer: AVAudioPlayer?
+let playSound = false
 
 func playSound(sound: String, type:String){
-    if let path = Bundle.main.path(forResource: sound, ofType: type){
-        do{
-            audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
-            audioPlayer?.play()
-        }catch{
-            print("error playing sound")
+    if playSound{
+        if let path = Bundle.main.path(forResource: sound, ofType: type){
+            do{
+                audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
+                audioPlayer?.play()
+            }catch{
+                print("error playing sound")
+            }
+        }else{
+            print("not found")
         }
-    }else{
-        print("not found")
     }
 }

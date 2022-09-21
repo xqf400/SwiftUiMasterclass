@@ -14,7 +14,7 @@ import CoreImage.CIFilterBuiltins
 
 class LockscreenModel: ObservableObject {
     //Image picker
-    @Published var pickedItem: PhotosPickerItem?{ // ios 16
+    @Published var pickedItem: PhotosPickerItem?{
         didSet{
             //MARK: Extracting Image
             extractImage()
@@ -24,33 +24,25 @@ class LockscreenModel: ObservableObject {
     @Published var detectedPerson: UIImage?
     
     //MARK: Scaleing Properites
+    
     @Published var scale: CGFloat = 1
     @Published var lastScale : CGFloat = 0
     
     @Published var textRect: CGRect = .zero
-    @Published var view: UIView = .init()
-    @Published var placeTextAbove: Bool = false
-    @Published var onLoad : Bool = false
     
     func extractImage(){
         if let pickedItem{
             Task{
-                if #available(iOS 16.0, *) {
-                    guard let imageData = try? await pickedItem.loadTransferable(type: Data.self) else {
-                        print("no image data")
-                        return}
-                    //MARK: Resziz image to phone size * 2
-                    let size = await UIApplication.shared.screenSize()
-                    let image = UIImage(data: imageData)?.sd_resizedImage(with: CGSize(width: size.width * 2, height: size.height * 2), scaleMode: .aspectFill)
-                    await MainActor.run(body: {
-                        self.compressedImage = image
-                        segmetPersonOnImage()
-                    })
-                } else {
-                    print("todo")
-                    // Fallback on earlier versions
-                }
-
+                guard let imageData = try? await pickedItem.loadTransferable(type: Data.self) else {
+                    print("no image data")
+                    return}
+                //MARK: Resziz image to phone size * 2
+                let size = await UIApplication.shared.screenSize()
+                let image = UIImage(data: imageData)?.sd_resizedImage(with: CGSize(width: size.width * 2, height: size.height * 2), scaleMode: .aspectFill)
+                await MainActor.run(body: {
+                    self.compressedImage = image
+                    segmetPersonOnImage()
+                })
             }
         }
     }
@@ -111,46 +103,7 @@ class LockscreenModel: ObservableObject {
             
             //This is detected Person image
             self.detectedPerson = UIImage(cgImage: image)
-            self.onLoad = true
         }
-    }
-    
-    //MARK: Checking textview coordonates color is still white or not
-    func verifyScreenColor(){
-        //for more depth effect converting it to midy to miny
-        //make sure it is poitin out your text color
-        let rgba = view.color(at: CGPoint(x: textRect.midX, y: textRect.minY + 5)) // erhöhen für weniger sichtbarkeit
-        print("RGBA: \(rgba)")
-        //Note since white color = 1,1,1,1 im directly comparing. if youre using another textcolor  then change here
-        withAnimation(.easeInOut) {
-            if rgba.0 == 1 && rgba.1 == 1 && rgba.2 == 1 && rgba.3 == 1 {
-                placeTextAbove = false
-            }else{
-                placeTextAbove = true
-            }
-        }
-    }
-    
-    
-}
-
-extension UIView{
-    //RGBA
-    func color(at point: CGPoint) -> (CGFloat, CGFloat, CGFloat, CGFloat){
-        let colorspace = CGColorSpaceCreateDeviceRGB()
-        let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.premultipliedLast.rawValue)
-        
-        var pixelData: [UInt8] = [0,0,0,0]
-        let contect = CGContext(data: &pixelData, width: 1, height: 1, bitsPerComponent: 8, bytesPerRow: 4, space: colorspace, bitmapInfo: bitmapInfo.rawValue)
-        contect!.translateBy(x: -point.x, y: -point.y)
-        
-        self.layer.render(in: contect!)
-        let red = CGFloat(pixelData[0]) / 255
-        let blue = CGFloat(pixelData[1]) / 255
-        let green = CGFloat(pixelData[2]) / 255
-        let alpha = CGFloat(pixelData[3]) / 255
-        
-        return (red, green, blue, alpha)
     }
 }
 

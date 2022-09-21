@@ -272,7 +272,7 @@ struct ContentView: View {
             for item in items {
                 let itemID = "\(item.id!)"
                 if id == itemID {
-                    print(item.task)
+                    print(item.task!)
                 }
             }
 

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		05084BB128D0774A005ADAAF /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 05084BB028D0774A005ADAAF /* SDWebImage */; };
 		057F607B28AB8442006E6448 /* IOS16LockscreenApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057F607A28AB8442006E6448 /* IOS16LockscreenApp.swift */; };
 		057F607D28AB8442006E6448 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057F607C28AB8442006E6448 /* ContentView.swift */; };
 		057F607F28AB8443006E6448 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 057F607E28AB8443006E6448 /* Assets.xcassets */; };
@@ -34,7 +33,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05084BB128D0774A005ADAAF /* SDWebImage in Frameworks */,
 				057F609028AB88FA006E6448 /* SDWebImageSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -114,7 +112,6 @@
 			name = IOS16Lockscreen;
 			packageProductDependencies = (
 				057F608F28AB88FA006E6448 /* SDWebImageSwiftUI */,
-				05084BB028D0774A005ADAAF /* SDWebImage */,
 			);
 			productName = IOS16Lockscreen;
 			productReference = 057F607728AB8442006E6448 /* IOS16Lockscreen.app */;
@@ -146,7 +143,6 @@
 			mainGroup = 057F606E28AB8442006E6448;
 			packageReferences = (
 				057F608E28AB88FA006E6448 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
-				05084BAF28D0774A005ADAAF /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = 057F607828AB8442006E6448 /* Products */;
 			projectDirPath = "";
@@ -315,7 +311,6 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -345,7 +340,6 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -383,14 +377,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		05084BAF28D0774A005ADAAF /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
 		057F608E28AB88FA006E6448 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
@@ -402,11 +388,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		05084BB028D0774A005ADAAF /* SDWebImage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 05084BAF28D0774A005ADAAF /* XCRemoteSwiftPackageReference "SDWebImage" */;
-			productName = SDWebImage;
-		};
 		057F608F28AB88FA006E6448 /* SDWebImageSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 057F608E28AB88FA006E6448 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;

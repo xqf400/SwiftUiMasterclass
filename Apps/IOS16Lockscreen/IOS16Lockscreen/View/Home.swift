@@ -43,22 +43,13 @@ struct Home: View {
                 }
             }else{
                 // MARK: Image Picker
-                if #available(iOS 16.0, *) {
-                    PhotosPicker(selection: $lockscreenModel.pickedItem, matching: .images, preferredItemEncoding: .automatic, photoLibrary: .shared()) {
-                        VStack(spacing: 10){
-                            Image(systemName: "plus.viewfinder")
-                                .font(.largeTitle)
-                            Text("Add Image")
-                        }
-                        .foregroundColor(.primary)
-                    }
-                } else {
+                PhotosPicker(selection: $lockscreenModel.pickedItem, matching: .images, preferredItemEncoding: .automatic, photoLibrary: .shared()) {
                     VStack(spacing: 10){
                         Image(systemName: "plus.viewfinder")
                             .font(.largeTitle)
-                        Text("Todo")
+                        Text("Add Image")
                     }
-                    // Fallback on earlier versions
+                    .foregroundColor(.primary)
                 }
             }
         }
@@ -70,9 +61,6 @@ struct Home: View {
                     lockscreenModel.compressedImage = nil
                     lockscreenModel.detectedPerson = nil
                 }
-                lockscreenModel.scale = 1
-                lockscreenModel.lastScale = 0
-                lockscreenModel.placeTextAbove = false
             }
             .font(.caption)
             .foregroundColor(.primary)
@@ -83,7 +71,6 @@ struct Home: View {
                     .fill(.ultraThinMaterial)
             }
             .padding()
-            .padding(.top, 45)
             .opacity(lockscreenModel.compressedImage == nil ? 0:1)
         }
     }

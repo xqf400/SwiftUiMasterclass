@@ -85,39 +85,35 @@ struct DevoteWidgetEntryView : View {
             GeometryReader { geometry in
                 VStack{
                     backgroundClear
-                    Text(showOnWidgetItems[0].task ?? "")
-                        .font(.system(.body, design: .rounded))
-                        .fontWeight(.medium)
-                        .foregroundColor(showOnWidgetItems[0].completion ? Color.green : Color.red)
-                        .padding(.vertical, 10)
-                    Divider()
+                    if showOnWidgetItems.count > 0 {
+                        Text(showOnWidgetItems[0].task ?? "")
+                            .font(fontStyle)
+                            .fontWeight(.medium)
+                            .foregroundColor(showOnWidgetItems[0].completion ? Color.green : Color.red)
+                            .padding(.vertical, 10)
+                            .lineLimit(3)
+                        Divider()
+                    }
                     if showOnWidgetItems.count > 1 {
                         Text(showOnWidgetItems[1].task ?? "")
-                            .font(.system(.body, design: .rounded))
+                            .font(fontStyle)
                             .fontWeight(.medium)
                             .foregroundColor(showOnWidgetItems[1].completion ? Color.green : Color.red)
                             .padding(.vertical, 10)
+                            .lineLimit(3)
                         Divider()
                     }
                     if showOnWidgetItems.count > 2 {
                         Text(showOnWidgetItems[2].task ?? "")
-                        .font(.system(.body, design: .rounded))
+                        .font(fontStyle)
                         .fontWeight(.medium)
                         .foregroundColor(showOnWidgetItems[2].completion ? Color.green : Color.red)
                         .padding(.vertical, 10)
+                        .lineLimit(3)
                 }
                 }.background(
                     backgroundGradient
                 )
-                /*
-                .onAppear{
-                    showOnWidgetItems.removeAll()
-                    for item in items{
-                        if !item.showOnWidget {
-                            showOnWidgetItems.append(item)
-                        }
-                    }
-                }*/
             }
 
         case .systemMedium:
@@ -125,30 +121,50 @@ struct DevoteWidgetEntryView : View {
                 VStack {
                     backgroundClear
                     if showOnWidgetItems.count > 0 {
+                        /*
                     Text(showOnWidgetItems[0].task ?? "")
                         .font(.system(.body, design: .rounded))
                         .fontWeight(.medium)
                         .foregroundColor(showOnWidgetItems[0].completion ? Color.green : Color.red)
                         .padding(.vertical, 10)
-                        .widgetURL(URL(string: "\(showOnWidgetItems[0].id!)"))
+                        .widgetURL(URL(string: "\(showOnWidgetItems[0].id!)"))*/
+                        Link(showOnWidgetItems[0].task ?? "", destination: URL(string: "\(showOnWidgetItems[0].id!)")!)
+                            .font(fontStyle)
+                            //.fontWeight(.medium)
+                            .foregroundColor(showOnWidgetItems[0].completion ? Color.green : Color.red)
+                            .padding(.vertical, 10)
+                            .lineLimit(0)
                     Divider()
                         if showOnWidgetItems.count > 1 {
+                            /*
                             Text(showOnWidgetItems[1].task ?? "")
                                 .font(.system(.body, design: .rounded))
                                 .fontWeight(.medium)
                                 .foregroundColor(showOnWidgetItems[1].completion ? Color.green : Color.red)
                                 .padding(.vertical, 10)
-                                .widgetURL(URL(string: "\(showOnWidgetItems[1].id!)"))
+                                .widgetURL(URL(string: "\(showOnWidgetItems[1].id!)"))*/
+                            Link(showOnWidgetItems[1].task ?? "", destination: URL(string: "\(showOnWidgetItems[1].id!)")!)
+                                .font(fontStyle)
+                                //.fontWeight(.medium)
+                                .foregroundColor(showOnWidgetItems[1].completion ? Color.green : Color.red)
+                                .padding(.vertical, 10)
+                                .lineLimit(0)
                             Divider()
                         }
-                    //Link(items[2].task ?? "", destination: URL(string: "\(items[2].id!)")!)
                         if showOnWidgetItems.count > 2 {
+                            Link(showOnWidgetItems[2].task ?? "", destination: URL(string: "\(showOnWidgetItems[2].id!)")!)
+                                .font(fontStyle)
+                                //.fontWeight(.medium)
+                                .foregroundColor(showOnWidgetItems[2].completion ? Color.green : Color.red)
+                                .padding(.vertical, 10)
+                                .lineLimit(0)
+                            /*
                             Text(showOnWidgetItems[2].task ?? "")
                                 .font(.system(.body, design: .rounded))
                                 .fontWeight(.medium)
                                 .foregroundColor(showOnWidgetItems[2].completion ? Color.green : Color.red)
                                 .padding(.vertical, 10)
-                                .widgetURL(URL(string: "\(showOnWidgetItems[2].id!)"))
+                                .widgetURL(URL(string: "\(showOnWidgetItems[2].id!)"))*/
                         }
                 }else{
                     Text("Empty")
@@ -157,15 +173,6 @@ struct DevoteWidgetEntryView : View {
                     backgroundGradient
                 )
             }
-            /*.onAppear{
-                /*
-                showOnWidgetItems.removeAll()
-                for item in items{
-                    if !item.showOnWidget {
-                        showOnWidgetItems.append(item)
-                    }
-                }*/
-            }*/
         case .systemLarge:
             Text("systemLarge")
         case .systemExtraLarge:
