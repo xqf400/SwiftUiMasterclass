@@ -15,7 +15,7 @@ struct ContentView: View {
     let haptics = UINotificationFeedbackGenerator()
     
     @State private var highscore: Int = UserDefaults.standard.integer(forKey: "HighScore")
-    @State private var coins: Int = 100
+    @State private var coins: Int = 200
     @State private var betAmount: Int = 10
     @State private var reels: Array = [0, 1, 2]
     @State private var showingInfoView: Bool = false
@@ -36,6 +36,7 @@ struct ContentView: View {
         reels = reels.map({ _ in // MARK: to learn map
             Int.random(in: 0...symbols.count - 1)
         })
+        playSound(sound: "spin", type: "mp3")
     }
     //Check the winning
     func checkWinning(){
@@ -45,6 +46,8 @@ struct ContentView: View {
             //New Highscore
             if coins > highscore {
                 newHighScore()
+            }else{
+                playSound(sound: "win", type: "mp3")
             }
         }else{
             //Player loses
@@ -59,6 +62,7 @@ struct ContentView: View {
     func newHighScore(){
         highscore = coins
         UserDefaults.standard.set(highscore, forKey: "HighScore")
+        playSound(sound: "high-score", type: "mp3")
     }
     
     func playerLoses(){
@@ -69,17 +73,21 @@ struct ContentView: View {
         betAmount = 20
         isActiveBet20 = true
         isActiveBet10 = false
+        playSound(sound: "casino-chips", type: "mp3")
     }
     func activateBet10(){
         betAmount = 10
         isActiveBet20 = false
         isActiveBet10 = true
+        playSound(sound: "casino-chips", type: "mp3")
+
     }
   
     //Game is over
     func isGameOver(){
         if coins <= 0 {
             showingModal = true
+            playSound(sound: "game-over", type: "mp3")
         }
     }
     
@@ -88,6 +96,7 @@ struct ContentView: View {
         highscore = 0
         coins = 100
         activateBet10()
+        playSound(sound: "chimeup", type: "mp3")
     }
     
     //MARK: Body
@@ -127,12 +136,20 @@ struct ContentView: View {
                 }
                 //MARK: Slot machine
                 VStack(alignment: .center, spacing: 0) {
+                    
                     //MARK: Reel 1
                     ZStack{
                         ReelView()
                         Image(symbols[reels[0]])
                             .resizable()
                             .modifier(ImageModifier())
+                            .opacity(animatingSymbol ? 1 : 0)
+                            .offset(y:animatingSymbol ? 0 : -50)
+                            .animation(.easeOut(duration: Double.random(in: 0.5...0.7)), value: animatingSymbol)
+                            .onAppear {
+                                self.animatingSymbol.toggle()
+                                playSound(sound: "riseup", type: "mp3")
+                            }
                     }
                     HStack(alignment: .center,spacing: 0) {
                         //MARK: Reel 2
@@ -141,6 +158,12 @@ struct ContentView: View {
                             Image(symbols[reels[1]])
                                 .resizable()
                                 .modifier(ImageModifier())
+                                .opacity(animatingSymbol ? 1 : 0)
+                                .offset(y:animatingSymbol ? 0 : -50)
+                                .animation(.easeOut(duration: Double.random(in: 0.7...0.9)), value: animatingSymbol)
+                                .onAppear {
+                                    self.animatingSymbol.toggle()
+                                }
                         }
                         Spacer()
                         
@@ -150,17 +173,33 @@ struct ContentView: View {
                             Image(symbols[reels[2]])
                                 .resizable()
                                 .modifier(ImageModifier())
+                                .opacity(animatingSymbol ? 1 : 0)
+                                .offset(y:animatingSymbol ? 0 : -50)
+                                .animation(.easeOut(duration: Double.random(in: 0.9...1.1)), value: animatingSymbol)
+                                .onAppear {
+                                    self.animatingSymbol.toggle()
+                                }
                         }
                     }
                     .frame(maxWidth: 500)
                     //MARK: Spin Button
                     Button {
-                        //spin the reels
+                        
+                        //1. Set default state: no anim
+                        withAnimation {
+                            self.animatingSymbol = false
+                        }
+                        //2. spin the reels with chaning symbols
                         self.spinReels()
-                        //check winning
+                        
+                        //3. Trigger animation after changing the sysmobls
+                        withAnimation {
+                            self.animatingSymbol = true
+                        }
+                        //4. check winning
                         self.checkWinning()
                         
-                        //Game is Over
+                        //5. Game is Over
                         self.isGameOver()
                     } label: {
                         Image("gfx-spin")
@@ -189,13 +228,17 @@ struct ContentView: View {
                         
                         Image("gfx-casino-chips")
                             .resizable()
+                            .offset(x: isActiveBet20 ? 0: 20)
                             .opacity(isActiveBet20 ? 1 : 0)
                             .modifier(CasinoChipsModifier())
                     }
+                    Spacer()
+                    
                     //MARK: Bet 10
                     HStack(alignment: .center, spacing: 10) {
                         Image("gfx-casino-chips")
                             .resizable()
+                            .offset(x: isActiveBet10 ? 0: -20)
                             .opacity(isActiveBet10 ? 1 : 0)
                             .modifier(CasinoChipsModifier())
                         Button {
@@ -269,7 +312,9 @@ struct ContentView: View {
                             
                             Button (action: {
                                 self.showingModal = false
-                                self.coins = 100
+                                self.animatingModal = false
+                                self.activateBet10()
+                                self.coins = 200
                             }) {
                                 Text("New Game")
                                     .font(.system(.body, design: .rounded))
@@ -291,6 +336,12 @@ struct ContentView: View {
                     .background(.white)
                     .cornerRadius(20)
                     .shadow(color: Color("ColorTransparentBlack"), radius: 6, x: 0, y: 8)
+                    .opacity($animatingModal.wrappedValue ? 1 : 0)
+                    .offset(y: $animatingModal.wrappedValue ? 0 : -100)
+                    .animation(Animation.spring(response: 0.6, dampingFraction: 1.0), value: animatingModal)
+                    .onAppear {
+                        self.animatingModal = true
+                    }
                 }
             }
         }//Zstack

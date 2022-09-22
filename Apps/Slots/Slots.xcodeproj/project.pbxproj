@@ -19,6 +19,7 @@
 		05084C6B28D21D9A005ADAAF /* spin.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 05084C6328D21D9A005ADAAF /* spin.mp3 */; };
 		05084C6C28D21D9A005ADAAF /* chimeup.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 05084C6428D21D9A005ADAAF /* chimeup.mp3 */; };
 		05084C6D28D21D9A005ADAAF /* casino-chips.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 05084C6528D21D9A005ADAAF /* casino-chips.mp3 */; };
+		05302F4728DC3C8F008F70EF /* PlaySound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05302F4628DC3C8F008F70EF /* PlaySound.swift */; };
 		055A26A628DB0FF10069FDB4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055A26A528DB0FF00069FDB4 /* Extensions.swift */; };
 		055A26A828DB12EF0069FDB4 /* ReelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055A26A728DB12EF0069FDB4 /* ReelView.swift */; };
 		055A26AA28DB32F20069FDB4 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055A26A928DB32F20069FDB4 /* InfoView.swift */; };
@@ -41,6 +42,7 @@
 		05084C6428D21D9A005ADAAF /* chimeup.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = chimeup.mp3; sourceTree = "<group>"; };
 		05084C6528D21D9A005ADAAF /* casino-chips.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "casino-chips.mp3"; sourceTree = "<group>"; };
 		05084C6F28D21DF2005ADAAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		05302F4628DC3C8F008F70EF /* PlaySound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySound.swift; sourceTree = "<group>"; };
 		055A26A528DB0FF00069FDB4 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		055A26A728DB12EF0069FDB4 /* ReelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReelView.swift; sourceTree = "<group>"; };
 		055A26A928DB32F20069FDB4 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 			children = (
 				0589896728D8B00300C1495C /* Modifiers.swift */,
 				055A26A528DB0FF00069FDB4 /* Extensions.swift */,
+				05302F4628DC3C8F008F70EF /* PlaySound.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				055A26A628DB0FF10069FDB4 /* Extensions.swift in Sources */,
+				05302F4728DC3C8F008F70EF /* PlaySound.swift in Sources */,
 				0589896828D8B00300C1495C /* Modifiers.swift in Sources */,
 				05084C5328D21BFC005ADAAF /* ContentView.swift in Sources */,
 				0589896628D8AFDA00C1495C /* LogoView.swift in Sources */,
