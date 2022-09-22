@@ -10,18 +10,18 @@ import AVFoundation
 
 var audioPlayer: AVAudioPlayer?
 
-let playSound = true
 
 func playSound(sound:String, type: String){
-    if playSound {
-        if let path = Bundle.main.path(forResource: sound, ofType: type) {
-            do {
-                audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
-                audioPlayer?.play()
-            }catch{
-                print("Could not load \(sound)")
+    let activateSound = UserDefaults.standard.bool(forKey: "activateSound")
+        if activateSound {
+            if let path = Bundle.main.path(forResource: sound, ofType: type) {
+                do {
+                    audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
+                    audioPlayer?.play()
+                }catch{
+                    print("Could not load \(sound)")
+                }
             }
         }
-    }
 }
 

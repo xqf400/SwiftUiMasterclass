@@ -10,13 +10,19 @@ import SwiftUI
 struct InfoView: View {
     @Environment(\.presentationMode) var presentationMode
     
+    @AppStorage("activateSound") var activateSound = false
     var body: some View {
         VStack(alignment: .center, spacing: 10) {
             LogoView()
-            
+
             Spacer()
             
             Form{
+                Section(header: Text("Sound Settings")) {
+                    Toggle(isOn: $activateSound) {
+                        Text("Activate Sound")
+                    }
+                }
                 Section(header: Text("About the application")) {
                     FormRowView(firstItem: "Application", secondItem: "Slotmachine")
                     FormRowView(firstItem: "Platforms", secondItem: "iPhone, iPad, Mac")
