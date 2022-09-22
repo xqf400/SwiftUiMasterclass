@@ -37,6 +37,7 @@ struct ContentView: View {
             Int.random(in: 0...symbols.count - 1)
         })
         playSound(sound: "spin", type: "mp3")
+        haptics.notificationOccurred(.success)
     }
     //Check the winning
     func checkWinning(){
@@ -74,13 +75,14 @@ struct ContentView: View {
         isActiveBet20 = true
         isActiveBet10 = false
         playSound(sound: "casino-chips", type: "mp3")
+        haptics.notificationOccurred(.success)
     }
     func activateBet10(){
         betAmount = 10
         isActiveBet20 = false
         isActiveBet10 = true
         playSound(sound: "casino-chips", type: "mp3")
-
+        haptics.notificationOccurred(.success)
     }
   
     //Game is over
