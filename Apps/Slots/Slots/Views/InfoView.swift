@@ -20,8 +20,10 @@ struct InfoView: View {
             Form{
                 Section(header: Text("Sound Settings")) {
                     Toggle(isOn: $activateSound) {
-                        Text("Activate Sound")
+                        Text(activateSound ? "Sound activated" : "Sound deactivated")
+                        Image(systemName: activateSound ? "speaker.wave.3.fill" :"speaker.slash")
                     }
+                    .tint(.pink)
                 }
                 Section(header: Text("About the application")) {
                     FormRowView(firstItem: "Application", secondItem: "Slotmachine")

@@ -16,6 +16,8 @@ func playSound(sound:String, type: String){
         if activateSound {
             if let path = Bundle.main.path(forResource: sound, ofType: type) {
                 do {
+                    try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+                    try AVAudioSession.sharedInstance().setActive(true)
                     audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
                     audioPlayer?.play()
                 }catch{
